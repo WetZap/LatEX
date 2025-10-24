@@ -82,7 +82,7 @@
     {\HRule{2 pt}}
 
     \vspace{1cm}
-    \Large 17/12/2024 \\
+    \Large 22/10/2025 \\
     \vspace{1cm}
  
     \normalfont\Large Universidad de Granada, Facultad de Ciencias \\
@@ -131,11 +131,78 @@ Ejemplo de cita~\cite{Mandelbrot2009}.
 
 \section{Apéndices}
 \subsection{A1: Calculo de Incertidumbres} 
+\subsubsection{Cálculo de la desviación estándar}
+La desviación estándar se usara para el calculo de la incertidumbre tipo A, su ecuación sería:
+\begin{equation}\centering
+    s = \sqrt{\dfrac{1}{N - 1} \sum_{i=1}^{N} (x_i - \bar{x})}
+\end{equation}
+
+\subsubsection{Incertidumbre tipo A}
+La incertidumbre tipo A se evalúa mediante análisis estadístico de datos repetidos, basada en su dispersión o desviación estándar, para lograr dar un valor que se asemeje lo máximo posible al real; su ecuación es la siguiente:
+\begin{equation}\centering
+u_A = \dfrac{s}{\sqrt{n}}
+\end{equation}
+donde $s$ sería la desviación estándar y $n$ el número de medidas realizadas.
+
+\subsubsection{Incertidumbre tipo B}
+La incertidumbre tipo B se debe al error que ocasiona el medir con instrumentos inexactos, su ecuación involucra la resolución ($\delta$) del instrumento que se haya usado:
+\begin{equation}\centering
+    u_B = \dfrac{\delta}{\sqrt{12}}
+\end{equation}
+
+\subsubsection{Incertidumbre Combinada}
+Tras obtener la incertidumbre tipo A y tipo B debemos juntarlas para dar un valor de incertidumbre concreto, se calcularía de la siguiente forma:
+\begin{equation}
+    u_C = \sqrt{(u_A)^2\ +\ (u_B)^2}
+\end{equation}
+
+\subsubsection{Incertidumbre debido a medida indirecta}
+Debido a la que usaremos este tipo de incertidumbre en varias ocasiones, la dejaremos aquí definida para evitar 
+tener que repetir el proceso cada vez. Sea $f(x_1,x_2,\ldots,x_n)$ una funcion con $n$ variables, la incertidumbre
+de esta función se calcularía mediante la propagación de incertidumbres, y obtendríamos la siguiente ecuación:
+
+\begin{equation}
+    \boxed{u_C(f(x_1,x_2,\ldots,x_n)) = \sqrt{\sum_{i=1}^{n} \left(\dfrac{\partial f}{\partial x_i}\right)^2\ u_C(x_i)^2}}
+\end{equation}
+
+Donde $\dfrac{\partial f}{\partial x_i}$ es la derivada parcial de $f$ respecto a la variable $x_i$, y $u_C(x_i)$ es la incertidumbre combinada de la variable $x_i$.
+Este calculo nos proporciona la incertidumbre de una función que depende de varias variables, teniendo en cuenta las incertidumbres individuales de cada variable.
+\subsubsection{Incertidumbre de Cambio de unidades}
+Esta incertidumbre la usaremos cuando un valor se encuentre en unas unidades distintas a las del SI, 
+se llevará a cabo mediante la propagación de incertidumbres, suponiendo  la siguiente ecuación: 
+$f(x) = \dfrac{x}{K}$ siendo $k$ un valor cualquiera real, entonces, $u_C(f(x)) = \sqrt{(\dfrac{\partial f(x)}{\partial x})^2\ u_C(x)^2}$ 
+y como $\dfrac{\partial f(x)}{\partial x} = \dfrac{1}{K}$, finalmente obtenemos:
+
+\begin{equation}
+    \boxed{u_C(f(x)) = \dfrac{u_C(x)}{K}}
+\end{equation}
+
+\subsubsection{Incertidumbre de la suma}
+Supongamos que tenemos la ecuación $f(x)=x_1+x_2$, la incertidumbre de esta suma se calcularía con la propagación de incertidumbre, y obtendríamos la siguiente ecuación:
+
+\begin{equation}
+    \boxed{u_C(f(x))=\sqrt{u_C(x_1)^2+u_C(x_2)^2}}
+\end{equation}
+
+\subsubsection{Incertidumbre de la inversa}
+Sea $f(x) = \dfrac{1}{x}$, haciendo el proceso de propagación de incertidumbres obtenemos su incertidumbre como:
+
+\begin{equation}
+    \boxed{u_C(f(x)) = \dfrac{u_C(x)}{x^2}}
+\end{equation}
+
+La incertidumbre del poder dispersivo vendría dada por esta fórmula.
+\subsubsection{Incertidumbre del indice de refracción}
+Sea $n = \dfrac{\sen(\dfrac{\alpha + \delta_m}{2})}{\sen(\dfrac{\alpha}{2})}$, haciendo el proceso de propagación de incertidumbres 
+y sabiendo que 
+$\dfrac{\partial n}{\partial \delta_m} = \dfrac{1}{2}\ \dfrac{\cos(\dfrac{\alpha + \delta_m}{2})}{sen(\dfrac{\alpha}{2})}$ obtenemos su incertidumbre como:
+
+\begin{equation}
+    \boxed{u_C(n) = \dfrac{1}{2}\ \dfrac{\cos(\dfrac{\alpha + \delta_m}{2})}{sen(\dfrac{\alpha}{2})} u_C(\delta_m)}
+\end{equation}
 
 
 \subsection{A2: Procedimientos}
-
-\subsection{A3: Medidas de Longitudes y Peso }
 
 
 \bibliographystyle{plain} % o el estilo que uses
