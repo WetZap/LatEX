@@ -14,16 +14,18 @@
 \usepackage{algorithm2e} %Facilita la sintaxis de los algoritmos.
 \usepackage[T1]{fontenc} %Hace posible escribir en diferentes idiomas.
 \usepackage{lmodern} %Carga la fuente Latin modern en el documento.
+\usepackage{microtype} %Mejoras tipográficas (interletrado y protrusión) para una composición más estética.
 \usepackage{float} %Hace posible el uso de [H] en las tablas y gráficas.
-\usepackage{blindtext} %Ncesario para usar este tipo de comentarios.
+\usepackage{blindtext} %Necesario para usar este tipo de comentarios.
 \usepackage{multicol} %Posibilidad (no mostrada aquí) de escribir en varias columnas para una misma página.
 \usepackage{wrapfig} %Permite que las figuras y tablas se ajusten mejor al texto.
 \usepackage{breqn} %Ajusta ecuaciones largas al ancho de la página, teniendo que romper y bajar a una fila más abajo parte de la ecuación para que quepa dentro de los márgenes.
 \usepackage{array} %Permite personalizar más ampliamente las columnas de las tablas de LaTeX.
+\usepackage{booktabs} %Tablas de alta calidad (\toprule, \midrule, \bottomrule) sin líneas verticales.
 \usepackage{eurosym} %Posibilidad de usar el símbolo € en el texto.
 \usepackage{amsmath} %Mejoras para la escritura de ecuaciones matemáticas.
-\usepackage{mathrsfs} %Prporciona el alfabeto de letras minúsculas de Ralph Smith.
-\usepackage{indentfirst} %Encaja el primer párrafo de un encabezado del documento, si por ejemplo el primer párrafo queremos que esté sangrado.
+\usepackage{mathrsfs} %Proporciona el alfabeto de letras minúsculas de Ralph Smith.
+\usepackage{indentfirst} %Sangra el primer párrafo de un encabezado del documento, si por ejemplo el primer párrafo queremos que esté sangrado.
 \usepackage{amsthm} %Facilita la escritura de demostraciones de afirmaciones matemáticas de toda clase.
 \usepackage[font=small,labelfont=bf]{caption} %Formatea los títulos de figuras y gráficas.
 \usepackage{graphicx} %Facilita la inclusión de imágenes en LaTeX.
@@ -38,10 +40,12 @@
 \usepackage{bm} %Posibilidad de escribir símbolos en negrita en lenguaje matemático. 
 \usepackage{url} %Inclusión de direcciones URL en el documento.
 \usepackage{siunitx} %Permite la escritura de cantidades físicas y unidades en el documento.
+% Configuración de siunitx para notación española (coma decimal) y detección de estilos
+% Configuración explícita de separador decimal en español
+\sisetup{output-decimal-marker = {,}, input-decimal-markers = {,}, detect-weight=true, detect-family=true}
 %\usepackage{geometry} %Posibilidad de personalizar las dimensiones del documento.
-\usepackage{geometry} %Posibilidad de personalizar las dimensiones del documento.
-
-
+% Eliminado paquete geometry duplicado (ya cargado arriba con opciones)
+% Eliminado fontenc duplicado (ya cargado arriba)
 
 
 
@@ -61,13 +65,13 @@
 \begin{document}
 \renewcommand{\headrulewidth}{0.5pt}
 \newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
-\renewcommand{\refname}{Bibliography}
-\renewcommand{\tablename}{Table}
-\renewcommand{\contentsname}{Index}
-\renewcommand{\figurename}{Fig.}
+\renewcommand{\refname}{Bibliografía}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\contentsname}{Índice}
+\renewcommand{\figurename}{Figura}
 \captionsetup{labelfont={color=nube}}
-\addtocontents{toc}{\hspace{-7.5mm} \textbf{Chapters}}
-\addtocontents{toc}{\hfill \textbf{Page} \par}
+\addtocontents{toc}{\hspace{-7.5mm} \textbf{Capítulos}}
+\addtocontents{toc}{\hfill \textbf{Página} \par}
 \addtocontents{toc}{\vspace{-2mm} \hspace{-7.5mm} \hrule \par}
 
 \onecolumn
@@ -91,7 +95,7 @@
     
      \normalfont\Large Grado en Físicas \\
     \vspace{0.5cm}
-    \normalfont Óptica I\\
+    \normalfont Óptica I\\%
     \vspace{1.5cm}
 
 \centering
@@ -109,7 +113,7 @@
 
 \end{titlepage}
 
-\selectlanguage{Spanish}
+\selectlanguage{spanish}
 
 \tableofcontents %único comando para manejar TODO el índice.
 \newpage
@@ -117,22 +121,170 @@
 \HRule{0.5pt} %Controla los márgenes horizontales visibles (líneas) y el grosor de la línea (...pt).
 
 \begin{abstract}
-RESUMEn
+Con el espectrogoniómetro medimos la desviación mínima de varias líneas espectrales y, a partir de las lecturas L y L0, obtuvimos los índices de refracción del prisma. Con esos valores calculamos su poder dispersivo y el número de Abbe correspondiente.
 \end{abstract}
 
 
 \section{Resultados y Discusiones}
+\subsection{Determinación de $\delta$}
+En esta práctica hemos medido el ángulo de desviación mínima para tres longitudes de onda distintas, para ello
+comenzamos midiendo la posición angular $L_0$ a la que llegaría la luz si no hubiera prisma,
+y la posición angular $L$ a la que llega la luz tras pasar por el prisma. Obteniendo los siguientes valores para las distintas longitudes de onda:
+
+Para la banda amarilla:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|r|r|r|r|}
+\hline
+\rowcolor[rgb]{ .651,  .788,  .925}
+\multicolumn{1}{|l|}{$L$ (º)} & \multicolumn{1}{l|}{$u_C(L)$ (º)} & \multicolumn{1}{l|}{$L_0$ (º)} & \multicolumn{1}{l|}{$u_C(L_0)$ (º)} \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 34,067 & 0,017 & 74,000 & 0,017 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 33,417 & 0,017 & 73,983 & 0,017 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 34,050 & 0,017 & 74,000 & 0,017 \\ \hline
+\end{tabular}
+\caption{Valores obtenidos en el espectrogoniómetro para la lámpara de sodio. Esta nos proporcionaba la banda amarilla.}\label{tab:banda_amarilla}
+\end{table}
+
+
+Para la banda roja:
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|r|r|r|r|}
+\hline
+\rowcolor[rgb]{ .651,  .788,  .925}
+\multicolumn{1}{|l|}{$L$ (º)} & \multicolumn{1}{l|}{$u_C(L)$ (º)} & \multicolumn{1}{l|}{$L_0$ (º)} & \multicolumn{1}{l|}{$u_C(L_0)$ (º)} \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816}220,967 & 0,017 & 260,717 & 0,017 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816}220,050 & 0,017 & 260,583 & 0,017 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816}220,733 & 0,017 & 260,650 & 0,017 \\ \hline
+\end{tabular}
+\caption{Valores obtenidos en el espectrogoniómetro para la lámpara de helio. Esta nos proporcionaba la banda roja.}\label{tab:banda_roja}
+\end{table}
+
+Para la banda azul:
+\begin{table}[H]
+\centering
+\begin{tabular}{|r|r|r|r|}
+\hline
+\rowcolor[rgb]{ .651,  .788,  .925}
+\multicolumn{1}{|l|}{$L$ (º)} & \multicolumn{1}{l|}{$u_C(L)$ (º)} & \multicolumn{1}{l|}{$L_0$ (º)} & \multicolumn{1}{l|}{$u_C(L_0)$ (º)} \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 219,983 & 0,017 & 260,717 & 0,017 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 219,083 & 0,017 & 260,583 & 0,017 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 219,617 & 0,017 & 260,650 & 0,017 \\ \hline
+\end{tabular}
+\caption{Valores obtenidos en el espectrogoniómetro para la lámpara de helio. Esta nos proporcionaba la banda azul.}\label{tab:banda_azul}
+\end{table}
+
+A continuación, empleamos la expresión proporcionada por el informe \cite{InfoOpticaPrisma}, $\delta = |L - L_0|$, para calcular el ángulo de desviación mínima para cada longitud de onda, obteniendo los siguientes resultados:\footnote{Los valores del amarillo pasarán a llamarse $D$, los del rojo $C$ y los del azul $F$.}
+\begin{table}[H]
+\centering
+\begin{tabular}{|r|r|r|}
+\hline
+\rowcolor[rgb]{ .651,  .788,  .925}
+\multicolumn{1}{|l|}{$\delta_C$ (º)} & \multicolumn{1}{l|}{$\delta_D$ (º)} & \multicolumn{1}{l|}{$\delta_F$ (º)} \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816}  39,7500 & 39,9333 & 40,7333 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 40,5333  & 40,5667 & 41,5000 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 39,9167& 39,9500  & 41,0333 \\ \hline
+\end{tabular}
+\caption{Valores obtenidos del ángulo de desviación mínima para cada longitud de onda. Todos los valores en grados y con incertidumbre de 0,0068.}\label{tab:delta}
+\end{table}
+
+
+Observamos que se cumple la relación esperada entre ellas, $(\delta_m)_F\ \text{mayor que}\ (\delta_m)_D\ \text{mayor que}\ (\delta_m)_C$.
+Pero estas medidas están en grados, por lo tanto hay que pasarlas a radianes para poder usarlas en la fórmula del índice de refracción, obteniendo los siguientes valores:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|r|r|r|}
+\hline
+\rowcolor[rgb]{ .651,  .788,  .925}
+\multicolumn{1}{|l|}{$\delta_D$ (rad)} & \multicolumn{1}{l|}{$\delta_C$ (rad)} & \multicolumn{1}{l|}{$\delta_F$ (rad)} \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816}0,69377 & 0,69697 & 0,71093 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816}0,70744 & 0,70802 & 0,72431 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816}0,69668 & 0,69726 & 0,71617 \\ \hline
+\end{tabular}
+\caption{Valores obtenidos del ángulo de desviación mínima para cada longitud de onda. Todos los valores en radianes y con incertidumbre de 0,00012.}\label{tab:delta_rad}
+\end{table}
+
+\subsection{Determinación del indice de refracción, número de Abbe y poder Dispersivo}
+
+Con estos datos, y sabiendo que el ángulo de refringencia del prisma tratado es de 60º,
+utilizamos la siguiente expresión: 
+\[
+n = \frac{\sen\left( \frac{\delta_m + \alpha}{2} \right)}{\sen\left( \frac{\alpha}{2} \right)}
+\]
+ para obtener los valores de los índices de refracción para cada banda estudiada, llegando a los siguientes resultados: 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|r|r|r|r|r|r|}
+\hline
+\rowcolor[rgb]{ .651,  .788,  .925}
+\multicolumn{1}{|l|}{$n_f$} & \multicolumn{1}{l|}{$u_C(n_f)$} & \multicolumn{1}{l|}{$n_c$} & \multicolumn{1}{l|}{$u_C(n_c)$} & \multicolumn{1}{l|}{$n_d$} & \multicolumn{1}{l|}{$u_C(n_d)$} \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816}1,540285 & 0,000076 & 1,531341 & 0,000076 & 1,529281 & 0,000077 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816}1,548785 & 0,000075 & 1,538427 & 0,000076 & 1,538056 & 0,000076 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816}1,543619 & 0,000076 & 1,531528 & 0,000076 & 1,531154 & 0,000076 \\ \hline
+\end{tabular}
+\caption{Valores obtenidos del índice de refracción para cada longitud de onda.}\label{tab:indice_refraccion}
+\end{table}
+
+Tras obtener estos valores podemos calcular el número de Abbe del prisma, usando la expresión proporcionada en el informe~\cite{InfoOpticaPrisma}:
+ \[
+\nu_D = \frac{n_D - 1}{n_F - n_C}
+\]
+Para poder utilizar esta ecuación haremos un promedio de los valores obtenidos para cada 
+índice de refracción, obteniendo los siguientes valores medios:
+
+$n_F = 1,5442\pm 0,0020$	
+
+$n_C = 1,5338\pm 0,0019$	
+
+$n_D = 1,5328\pm 0,0022$
+
+Obtenemos $\nu_D=46\pm12$\footnote{El proceso de cálculo de la incertidumbre se explica en el apéndice}. 
+Dado que para los vidrios ópticos convencionales el valor se encuentra entre 25 y 75,
+el número de Abbe obtenido de forma experimental 
+se encuentra en el rango aceptable. Con el valor obtenido, sería un vidrio de tipo flint, ya que $\nu_D\ \text{mayor que}\ 50$.
+Sin embargo, la incertidumbre obtenida es considerable, tanto que no podemos determinar con seguridad si
+se trata de un vidrio de tipo flint o de tipo crown.
+La magnitud de la incertidumbre puede deberse a que no fue sencillo determinar en qué posición el sistema 
+se encontraba en desviación mínima, debido a factores como la exactitud del calibrado del anteojo en ese 
+momento, o el propio error humano.
+
+
+Podemos calcular el poder dispersivo del vidrio, definido como $\frac{1}{\nu_D} = \frac{n_F - n_C}{n_D - 1}$. 
+Obteniendo $\frac{1}{\nu_D}=0.0214\pm 0.0056$. De nuevo, la incertidumbre es alta como para 
+sacar conclusiones sobre las propiedades del vidrio estudiado.
 
 \section{Conclusiones}
+En esta práctica hemos profundizado en la propiedad dispersiva de los prismas, con objetivo 
+final de calcular el índice de refracción del prisma para tres longitudes de onda distintas, 
+y con ello calcular el número de Abbe y el poder dispersivo del cristal.
+
+El método utilizado ha sido la medición del ángulo de desviación mínimo de la luz, 
+utilizando la comparación entre la posición a la que llegaría la luz de no haber prisma, 
+y la posición a la que llega tras pasar por él.
+
+Se ha obtenido la relación esperada entre las desviaciones mínimas para cada banda.
+
+Con estos datos, se ha calculado el índice de refracción para cada caso, y con estos valores se ha calculado 
+el número de Abbe. El resultado en esta ocasión no ha sido del todo satisfactorio, ya que aunque el 
+valor obtenido es razonable, la incertidumbre asociada a él hace que no sea una experiencia correcta 
+para determinar las características dispersivas del prisma estudiado. Esto mismo se aplica al valor del 
+poder dispersivo del prisma.
 
 \section{Agradecimientos}
-Ejemplo de cita~\cite{Mandelbrot2009}.
+Nos gustaría agradecer al Departamento de Óptica de la Universidad de Granada por proporcionarnos
+los medios y el material necesario para llevar a cabo esta práctica, así como a 
+nuestro profesor por su guía y apoyo durante el desarrollo de la misma.
+También nos gustaría agradecer a HyperPhysics por sus explicaciones sobre los cristales ópticos proporcionadas
+en~\cite{CristalesOpticos}.
 
-
+\newpage
 \section{Apéndices}
-\subsection{A1: Calculo de Incertidumbres} 
+\subsection{A1: Cálculo de incertidumbres} 
 \subsubsection{Cálculo de la desviación estándar}
-La desviación estándar se usara para el calculo de la incertidumbre tipo A, su ecuación sería:
+La desviación estándar se usará para el cálculo de la incertidumbre tipo A; su ecuación sería:
 \begin{equation}\centering
     s = \sqrt{\dfrac{1}{N - 1} \sum_{i=1}^{N} (x_i - \bar{x})}
 \end{equation}
@@ -156,7 +308,7 @@ Tras obtener la incertidumbre tipo A y tipo B debemos juntarlas para dar un valo
     u_C = \sqrt{(u_A)^2\ +\ (u_B)^2}
 \end{equation}
 
-\subsubsection{Incertidumbre debido a medida indirecta}
+\subsubsection{Incertidumbre debida a medida indirecta}
 Debido a la que usaremos este tipo de incertidumbre en varias ocasiones, la dejaremos aquí definida para evitar 
 tener que repetir el proceso cada vez. Sea $f(x_1,x_2,\ldots,x_n)$ una funcion con $n$ variables, la incertidumbre
 de esta función se calcularía mediante la propagación de incertidumbres, y obtendríamos la siguiente ecuación:
@@ -166,8 +318,8 @@ de esta función se calcularía mediante la propagación de incertidumbres, y ob
 \end{equation}
 
 Donde $\dfrac{\partial f}{\partial x_i}$ es la derivada parcial de $f$ respecto a la variable $x_i$, y $u_C(x_i)$ es la incertidumbre combinada de la variable $x_i$.
-Este calculo nos proporciona la incertidumbre de una función que depende de varias variables, teniendo en cuenta las incertidumbres individuales de cada variable.
-\subsubsection{Incertidumbre de Cambio de unidades}
+Este cálculo nos proporciona la incertidumbre de una función que depende de varias variables, teniendo en cuenta las incertidumbres individuales de cada variable.
+\subsubsection{Incertidumbre por cambio de unidades}
 Esta incertidumbre la usaremos cuando un valor se encuentre en unas unidades distintas a las del SI, 
 se llevará a cabo mediante la propagación de incertidumbres, suponiendo  la siguiente ecuación: 
 $f(x) = \dfrac{x}{K}$ siendo $k$ un valor cualquiera real, entonces, $u_C(f(x)) = \sqrt{(\dfrac{\partial f(x)}{\partial x})^2\ u_C(x)^2}$ 
@@ -192,18 +344,26 @@ Sea $f(x) = \dfrac{1}{x}$, haciendo el proceso de propagación de incertidumbres
 \end{equation}
 
 La incertidumbre del poder dispersivo vendría dada por esta fórmula.
-\subsubsection{Incertidumbre del indice de refracción}
+
+\subsubsection{Incertidumbre del índice de refracción}
 Sea $n = \dfrac{\sen(\dfrac{\alpha + \delta_m}{2})}{\sen(\dfrac{\alpha}{2})}$, haciendo el proceso de propagación de incertidumbres 
 y sabiendo que 
-$\dfrac{\partial n}{\partial \delta_m} = \dfrac{1}{2}\ \dfrac{\cos(\dfrac{\alpha + \delta_m}{2})}{sen(\dfrac{\alpha}{2})}$ obtenemos su incertidumbre como:
+$\dfrac{\partial n}{\partial \delta_m} = \dfrac{1}{2}\ \dfrac{\cos(\dfrac{\alpha + \delta_m}{2})}{\sen(\dfrac{\alpha}{2})}$ obtenemos su incertidumbre como:
 
 \begin{equation}
-    \boxed{u_C(n) = \dfrac{1}{2}\ \dfrac{\cos(\dfrac{\alpha + \delta_m}{2})}{sen(\dfrac{\alpha}{2})} u_C(\delta_m)}
+    \boxed{u_C(n) = \dfrac{1}{2}\ \dfrac{\cos(\dfrac{\alpha + \delta_m}{2})}{\sen(\dfrac{\alpha}{2})} u_C(\delta_m)}
 \end{equation}
 
+\subsubsection{Incertidumbre del número de Abbe}
+Sea $\nu_D = \dfrac{n_D - 1}{n_F - n_C}$, haciendo el proceso de propagación de incertidumbres 
+y sabiendo que: 
+$\dfrac{\partial \nu_D}{\partial n_F} = \dfrac{n_D - 1}{(n_F - n_C)^2}$, $\dfrac{\partial \nu_D}{\partial n_C} = \dfrac{n_D - 1}{(n_F - n_C)^2}$ y $\dfrac{\partial \nu_D}{\partial n_D} = -\dfrac{1}{n_F - n_C}$ obtenemos su incertidumbre como:
 
-\subsection{A2: Procedimientos}
+\begin{equation}
+    \boxed{u_C(\nu_D) =\dfrac{n_D - 1}{n_F - n_C} \sqrt{\left(\dfrac{u_C(n_F)}{n_F - n_C} \right)^2 + \left(\dfrac{u_C(n_C)}{n_F - n_C} \right)^2 + \left(\dfrac{u_C(n_D)}{(n_D - 1)^2} \right)^2}}
+\end{equation}
 
+% Bibliografía
 
 \bibliographystyle{plain} % o el estilo que uses
 \bibliography{biblio,references} % sin extensión, apunta a biblio.bib
