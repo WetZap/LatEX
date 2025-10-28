@@ -129,7 +129,7 @@ Con el espectrogoniómetro medimos la desviación mínima de varias líneas espe
 \subsection{Determinación de $\delta$}
 En esta práctica hemos medido el ángulo de desviación mínima para tres longitudes de onda distintas, para ello
 comenzamos midiendo la posición angular $L_0$ a la que llegaría la luz si no hubiera prisma,
-y la posición angular $L$ a la que llega la luz tras pasar por el prisma. Obteniendo los siguientes valores para las distintas longitudes de onda:
+y la posición angular $L$ a la que llega la luz tras pasar por el prisma. Obteniendo así los siguientes valores para las distintas longitudes de onda:
 
 Para la banda amarilla:
 
@@ -175,7 +175,7 @@ Para la banda azul:
 \caption{Valores obtenidos en el espectrogoniómetro para la lámpara de helio. Esta nos proporcionaba la banda azul.}\label{tab:banda_azul}
 \end{table}
 
-A continuación, empleamos la expresión proporcionada por el informe \cite{InfoOpticaPrisma}, $\delta = |L - L_0|$, para calcular el ángulo de desviación mínima para cada longitud de onda, obteniendo los siguientes resultados:\footnote{Los valores del amarillo pasarán a llamarse $D$, los del rojo $C$ y los del azul $F$.}
+A continuación, empleamos la expresión proporcionada por el informe \cite{InfoOpticaPrisma}, $\delta = |L - L_0|$, para calcular el ángulo de desviación mínima para cada longitud de onda,esta angulo lo usaremos más adelante para obtener los valores requeridos.Exponemos los resultados:\footnote{Los valores del amarillo pasarán a llamarse $D$, los del rojo $C$ y los del azul $F$.}
 \begin{table}[H]
 \centering
 \begin{tabular}{|r|r|r|}
@@ -208,12 +208,11 @@ Pero estas medidas están en grados, por lo tanto hay que pasarlas a radianes pa
 
 \subsection{Determinación del indice de refracción, número de Abbe y poder Dispersivo}
 
-Con estos datos, y sabiendo que el ángulo de refringencia del prisma tratado es de 60º,
-utilizamos la siguiente expresión: 
+Con los datos del apartado anterior,  sabiendo que el ángulo de refringencia del prisma tratado es de 60º sin incertidumbre podemos calcular el índice de refracción del prisma para cada longitud de onda. Para elloutilizamos la siguiente expresión: 
 \[
 n = \frac{\sen\left( \frac{\delta_m + \alpha}{2} \right)}{\sen\left( \frac{\alpha}{2} \right)}
 \]
- para obtener los valores de los índices de refracción para cada banda estudiada, llegando a los siguientes resultados: 
+La siguiente tabla expone los valores obtenidos del indice de refracción para cada longitud de onda:
 
 \begin{table}[H]
 \centering
@@ -232,7 +231,7 @@ Tras obtener estos valores podemos calcular el número de Abbe del prisma, usand
  \[
 \nu_D = \frac{n_D - 1}{n_F - n_C}
 \]
-Para poder utilizar esta ecuación haremos un promedio de los valores obtenidos para cada 
+Para poder utilizar esta ecuación haremos un promedio\footnote{Debido a que la incertidumbre considerada es practicamente la misma no haremos una media ponderada, sino un media normal.} de los valores obtenidos para cada 
 índice de refracción, obteniendo los siguientes valores medios:
 
 $n_F = 1,5442\pm 0,0020$	
@@ -257,15 +256,15 @@ Obteniendo $\frac{1}{\nu_D}=0.0214\pm 0.0056$. De nuevo, la incertidumbre es alt
 sacar conclusiones sobre las propiedades del vidrio estudiado.
 
 \section{Conclusiones}
-En esta práctica hemos profundizado en la propiedad dispersiva de los prismas, con objetivo 
+En esta práctica hemos profundizado en la propiedad dispersiva de los prismas, con el objetivo 
 final de calcular el índice de refracción del prisma para tres longitudes de onda distintas, 
-y con ello calcular el número de Abbe y el poder dispersivo del cristal.
+y con ello calcular el número de Abbe y el poder dispersivo del prisma.
 
 El método utilizado ha sido la medición del ángulo de desviación mínimo de la luz, 
 utilizando la comparación entre la posición a la que llegaría la luz de no haber prisma, 
 y la posición a la que llega tras pasar por él.
 
-Se ha obtenido la relación esperada entre las desviaciones mínimas para cada banda.
+Se obtuvo la relación de ángulo de desviación mínima esperada entre las distintas longitudes de onda, hecho que nos da constancia de que la práctica se ha realizado de forma correcta aunque los datos tomados creíamos que estaban mal.
 
 Con estos datos, se ha calculado el índice de refracción para cada caso, y con estos valores se ha calculado 
 el número de Abbe. El resultado en esta ocasión no ha sido del todo satisfactorio, ya que aunque el 
