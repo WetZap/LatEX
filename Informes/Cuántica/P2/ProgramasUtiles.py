@@ -117,8 +117,8 @@ while opcion != '0':
         plt.plot(data.x, y_pred, 'g-', label='Ajuste',linewidth=4.0)
 
 
-        plt.xlabel(r'$T (s)$',fontsize=25)
-        plt.ylabel(r'$\theta (rad)$',fontsize=25)
+        plt.xlabel(r'$\nu (Hz)$',fontsize=25)
+        plt.ylabel(r'$V_0 (V)$',fontsize=25)
         plt.legend(loc='best',fontsize=25)
         plt.grid()
 
@@ -202,8 +202,8 @@ while opcion != '0':
         plt.plot(data.x, y_pred, 'g-', label='Ajuste',linewidth=4.0)
 
 
-        plt.xlabel(r'$T (s)$',fontsize=25)
-        plt.ylabel(r'$\theta (rad)$',fontsize=25)
+        plt.xlabel(r'$\nu (Hz)$',fontsize=25)
+        plt.ylabel(r'$V_0 (V)$',fontsize=25)
         plt.legend(loc='best',fontsize=25)
         plt.grid()
 
