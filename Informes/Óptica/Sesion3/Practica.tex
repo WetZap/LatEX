@@ -121,89 +121,19 @@
 \HRule{0.5pt} %Controla los márgenes horizontales visibles (líneas) y el grosor de la línea (...pt).
 
 \begin{abstract}
-En la práctica del biprisma de Fresnel, se generaron y analizaron franjas de interferencia utilizando una fuente puntual de luz y el biprisma para obtener dos focos coherentes. Se midió la distancia entre franjas y se estudió el contraste de la interferencia según las condiciones de coherencia espacial para poder obtener el valor de la longitud de onda con la que la lámpara emitía.
 \end{abstract}
 
 \section{Resultados}
 
-\title{Cosas por hacer: }
-REVISAR CONCLUSIONES
-REVISAR LO DE sigma
-DECIDIR SI PONER LOS DATOS SIN TRATAR AL FINAL 
-METER MORRALLA DE DESCRIPCIONES
-
-Tras configurar el sistema óptico según el esquema propuesto en el guión de prácticas~\cite{InfoOpticaPrisma},
-comenzamos midiendo la separación entre tres franjas de la fuente, obteniendo así los valores de $s = x_{k+3} - x_k$, donde $x_i$ es la posición de la $i$-ésima franja medida con el micrómetro.
-
-Los valores medidos se muestran en la siguiente tabla:
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|}
-\hline
-\rowcolor[rgb]{ .651,  .788,  .925}
-\textbf{s (mm)} \\ \hline
-\rowcolor[rgb]{.816,  .816,  .816} 3,020 \\ \hline
-\rowcolor[rgb]{.816,  .816,  .816} 3,010 \\ \hline
-\rowcolor[rgb]{.816,  .816,  .816} 3,070 \\ \hline
-\end{tabular}
-\caption{Medidas de \texorpdfstring{$s$}{s} (mm), con incertidumbre \texorpdfstring{$u_s$}{u\_s} = 0,01\,mm}\label{tab:medidas_S}
-\end{table}
-
-Con estos datos, obtenemos el valor promedio de $s = 3,03\,\pm\,0,02$\,mm. La desviación estándar de las tres medidas es $\sigma \approx 0,032$\,mm, por lo que consideramos que tres medidas son suficientes para este caso.
-
-Posteriormente, introducimos en el sistema una lente, y buscamos las posiciones de Bessel, es decir, aquellas en las que observamos por el ocular dos líneas bien definidas.
-Anotamos las distancias entre rendijas en cada una de las dos posiciones de Bessel estudiadas, $d'_1$ y $d'_2$, de las cuales $d'_1$ corresponde a la primera posición. En la siguiente tabla se muestran los valores medidos.
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|c|}
-\hline
-\rowcolor[rgb]{ .651,  .788,  .925}
-\textbf{Medidas posición Bessel $d'_1$ (mm)} & \textbf{Medidas posición Bessel $d'_2$ (mm)} \\ \hline
-\rowcolor[rgb]{.816,  .816,  .816} -0,35 & -3,54 \\ \hline
-\rowcolor[rgb]{.816,  .816,  .816} -0,34 & -3,55 \\ \hline
-\rowcolor[rgb]{.816,  .816,  .816} -0,40 & -3,55 \\ \hline
-\end{tabular}
-\caption{Medidas de las interfranjas obtenidas para las posiciones de Bessel: \texorpdfstring{$d'_1$}{d'\_1} (mm) y \texorpdfstring{$d'_2$}{d'\_2} (mm). La incertidumbre en ambos casos es \texorpdfstring{$u_{d'}$}{u\_{d'}} = 0,01\,mm}
-\label{tab:franjas_cerca_lejos}
-\end{table}
-
-A partir de estos valores, podemos promediarlos para obtener $d'_2 = -3,55\,\pm\,0,01$\,mm y $d'_1 = -0,36\,\pm\,0,02$\,mm. Las dispersiones muestrales son $\sigma(d'_1) \approx 0,032$\,mm y $\sigma(d'_2) \approx 0,006$\,mm, suficientemente pequeñas como para justificar el uso de tres medidas.
-
-Con estos datos, podemos calcular la distancia $d$ como:
-\begin{equation}
-d = \sqrt{d'_{1} d'_{2}}
-\end{equation}
-y hallamos $d = 1,14\,\pm\,0,03$\,mm.
-
-Con los datos de las interfranjas en las posiciones de Bessel y sabiendo que la distancia focal del biprisma utilizado es de $f' = 15$ (cm), calculamos la distancia de las fuentes al lugar de interferencia, $D$. 
-Esta variable guarda la siguiente relación con las demás:
-
-\begin{equation}
-D = f' \left( 2 - \frac{d^{2} + d'_{1}{}^{2}}{d\, d'_{1}} \right)
-\end{equation}
-
-Tras operar con estos valores, se obtiene $D = 817\,\pm\,12$\,mm.
-
-En este momento podemos calcular la longitud de onda de la fuente utilizada mediante la expresión
-\begin{equation}
-\lambda = \frac{d \, s}{3D}
-\end{equation}
-
-Con los valores experimentales medidos, encontramos que la longitud de onda calculada es $\lambda = 1410\,\pm\,40$\,nm.\footnote{La incertidumbre del valor de $\lambda$ se compone del cálculo para determinarla en mm y de su posterior conversión a nm.}
-
-El valor teórico de la longitud de onda para la lámpara de sodio utilizada es de 589,3 (nm) \cite{InfoOpticaPrisma}, por lo que el valor obtenido experimentalmente no concuerda con el valor teórico esperado, lo que nos da un error relativo de $\epsilon_R = 138\%$.
-
-El error puede deberse a varios factores, entre ellos la dificultad de medir con precisión las posiciones de las franjas y las distancias entre ellas, así como posibles errores en la alineación del sistema óptico. Además, la calidad del biprisma y la coherencia de la fuente de luz también pueden influir en los resultados obtenidos.
-
-
 \section{Conclusiones}
-Aunque finalmente no hemos conseguido un valor de la longitud de onda cercano al teórico, hemos podido observar y analizar el fenómeno de interferencia utilizando el biprisma de Fresnel. La práctica nos ha permitido comprender mejor los conceptos de coherencia espacial y la formación de franjas de interferencia, así como la importancia de la precisión en las mediciones experimentales.
 
 
 
 \section{Agradecimientos}
 Nos gustaría agradecer al Departamento de Óptica de la Universidad de Granada por proporcionarnos
 los medios y el material necesarios para llevar a cabo esta práctica, así como a nuestro profesor por su guía y apoyo durante el desarrollo de la misma.
+
+
 \newpage
 \section{Apéndices}
 \subsection{A1: Cálculo de incertidumbres} 
