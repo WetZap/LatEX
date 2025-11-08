@@ -59,9 +59,7 @@
 \fancyhf{}
 \cfoot{}
 \rhead{\thepage}
- \lhead{Práctica 5: MICROSCOPIO. INTERFEROMETRÍA POR
-DIVISIÓN DE AMPLITUD: ANILLOS DE
-NEWTON}
+ \lhead{Práctica 4: Biprisma de Fresnel}
 
 
 \begin{document}
@@ -81,7 +79,7 @@ NEWTON}
 \centering
     {\HRule{2 pt}} \\
     \vspace{0.5cm}
-    {\scshape\Huge {\textbf{Práctica 5: MICROSCOPIO. INTERFEROMETRÍA POR DIVISIÓN DE AMPLITUD: ANILLOS DE NEWTON}} \par}
+    {\scshape\Huge {\textbf{Práctica 4: Biprisma de Fresnel}  }}  \\
     %AQUI SE PONE EL TITULO
     \vspace{1 mm}
     
@@ -123,13 +121,85 @@ NEWTON}
 \HRule{0.5pt} %Controla los márgenes horizontales visibles (líneas) y el grosor de la línea (...pt).
 
 \begin{abstract}
-
+En la práctica del biprisma de Fresnel, se generaron y analizaron franjas de interferencia utilizando una fuente puntual de luz y el biprisma para obtener dos focos coherentes. Se midió la distancia entre franjas y se estudió el contraste de la interferencia según las condiciones de coherencia espacial para poder obtener el valor de la longitud de onda emitida. Además, se aplicó el método de Bessel para estimar la separación efectiva de las fuentes virtuales desde dos posiciones simétricas, reforzando la validez geométrica del procedimiento.
 \end{abstract}
 
 \section{Resultados}
 
+% (Eliminado bloque interno de tareas y notas preliminares)
+
+Tras configurar el sistema óptico según el esquema propuesto en el guión de prácticas~\cite{InfoOpticaPrisma}, comenzamos midiendo la separación entre tres franjas consecutivas. Para reducir el error al comparar posiciones individuales se toma $s = x_{k+3} - x_k$, abarcando tres interfranjas y disminuyendo el efecto de error de lectura en cada borde. Aquí $x_i$ es la posición de la $i$-ésima franja medida con el micrómetro.
+
+Los valores medidos se muestran en la siguiente tabla:
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|}
+\hline
+\rowcolor[rgb]{ .651,  .788,  .925}
+\textbf{s (mm)} \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 3,020 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 3,010 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 3,070 \\ \hline
+\end{tabular}
+\caption{Medidas de \texorpdfstring{$s$}{s} (mm), con incertidumbre \texorpdfstring{$u_s$}{u\_s} = 0,01\,mm}\label{tab:medidas_S}
+\end{table}
+
+Con estos datos, obtenemos el valor promedio de $s = 3,03\,\pm\,0,02$\,mm. La desviación estándar de las tres medidas es $\sigma \approx 0,032$\,mm, por lo que consideramos que tres medidas son suficientes para este caso (más repeticiones apenas reducirían $u_A$). Obsérvese que en la expresión posterior de la longitud de onda aparece un factor 3 en el denominador: proviene de que $s$ incluye tres espaciamientos, de modo que la interfranja individual es $s/3$.
+
+Posteriormente, introducimos en el sistema una lente y buscamos las posiciones de Bessel, es decir, aquellas en las que la imagen de las dos fuentes virtuales se observa nítida y simétrica respecto al eje óptico. Estas posiciones, separadas alrededor del enfoque medio, permiten construir una relación que elimina la dependencia explícita objeto-imagen. Anotamos las distancias entre rendijas en cada una de las dos posiciones de Bessel estudiadas, $d'_1$ y $d'_2$, de las cuales $d'_1$ corresponde a la primera posición (más cercana). Los signos negativos reflejan la convención de origen del vernier y no implican distancia física negativa. En la siguiente tabla se muestran los valores medidos.
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\rowcolor[rgb]{ .651,  .788,  .925}
+\textbf{Medidas posición Bessel $d'_1$ (mm)} & \textbf{Medidas posición Bessel $d'_2$ (mm)} \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} -0,35 & -3,54 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} -0,34 & -3,55 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} -0,40 & -3,55 \\ \hline
+\end{tabular}
+\caption{Medidas de las interfranjas obtenidas para las posiciones de Bessel: \texorpdfstring{$d'_1$}{d'\_1} (mm) y \texorpdfstring{$d'_2$}{d'\_2} (mm). La incertidumbre en ambos casos es \texorpdfstring{$u_{d'}$}{u\_{d'}} = 0,01\,mm}
+\label{tab:franjas_cerca_lejos}
+\end{table}
+
+A partir de estos valores, podemos promediarlos para obtener $d'_2 = -3,55\,\pm\,0,01$\,mm y $d'_1 = -0,36\,\pm\,0,02$\,mm. Las dispersiones muestrales son $\sigma(d'_1) \approx 0,032$\,mm y $\sigma(d'_2) \approx 0,006$\,mm, suficientemente pequeñas como para justificar el uso de tres medidas. El uso de las dos posiciones de Bessel permite derivar una separación efectiva independiente de la elección exacta del plano de observación mediante la combinación simétrica siguiente.
+
+Con estos datos, podemos calcular la distancia $d$ como (relación clásica de Bessel para dos posiciones conjugadas):
+\begin{equation}
+d = \sqrt{d'_{1} d'_{2}}
+\end{equation}
+y hallamos $d = 1,14\,\pm\,0,03$\,mm. Esta forma $d = \sqrt{d'_1 d'_2}$ surge de igualar las expresiones de aumento lateral en cada posición conjugada y eliminar las distancias objeto e imagen.
+
+Con los datos de las interfranjas en las posiciones de Bessel y sabiendo que la distancia focal del biprisma utilizado es de $f' = 15$ (cm), calculamos la distancia de las fuentes al lugar de interferencia, $D$. 
+Esta variable guarda la siguiente relación con las demás, obtenida de la geometría de rayos y semejanza de triángulos:
+
+\begin{equation}
+D = f' \left( 2 - \frac{d^{2} + d'_{1}{}^{2}}{d\, d'_{1}} \right)
+\end{equation}
+
+Tras operar con estos valores, se obtiene $D = 817\,\pm\,12$\,mm.
+
+En este momento podemos calcular la longitud de onda de la fuente utilizada mediante la expresión
+\begin{equation}
+\lambda = \frac{d \, s}{3D}
+\end{equation}
+
+Con los valores experimentales medidos, encontramos que la longitud de onda calculada es $\lambda = 1410\,\pm\,40$\,nm.\footnote{La incertidumbre del valor de $\lambda$ se compone del cálculo para determinarla en mm y de su posterior conversión a nm.}
+
+El valor teórico de la longitud de onda para la lámpara de sodio utilizada es de 589,3 (nm) \cite{InfoOpticaPrisma}, por lo que el valor obtenido experimentalmente no concuerda con el valor teórico esperado, lo que nos da un error relativo de $\epsilon_R = 138\%$. Este desvío tan amplio sugiere errores sistemáticos dominantes más allá de la mera dispersión estadística.
+
+El error puede deberse a varios factores, entre ellos: 
+
+\begin{enumerate}
+    \item (i) Dificultad de fijar el centro de cada franja (gradiente de intensidad)
+    \item (ii) Ligeras desalineaciones angulares que sesgan $d$ y $D$
+    \item (iii) Posible variación espectral o térmica de la lámpara durante la toma de datos
+    \item (iv) Interpretación de la escala con signos negativos
+\end{enumerate}
+
 
 \section{Conclusiones}
+Aunque finalmente no hemos conseguido un valor de la longitud de onda cercano al teórico, hemos podido observar y analizar el fenómeno de interferencia utilizando el biprisma de Fresnel. La práctica nos ha permitido comprender mejor los conceptos de coherencia espacial y la formación de franjas de interferencia, así como la importancia de la precisión en las mediciones experimentales.
+
 
 
 \section{Agradecimientos}
@@ -194,7 +264,7 @@ y como $\dfrac{\partial f(x)}{\partial x} = \dfrac{1}{K}$, finalmente obtenemos:
 \subsubsection{Incertidumbre de $d$}
 Para calcular la incertidumbre de $d = \sqrt{d'_{1} d'_{2}}$, aplicamos la fórmula de propagación de incertidumbres, y calculamos las derivadas parciales correspondientes, obteniendo:
 \begin{equation}
-    \boxed{u_C(d) = \dfrac{1}{2\ d}\sqrt{(d_1\ u_C(d_1))^2\ +\ (d_2\ u_C(d_2))^2} }
+    \boxed{u_C(d) = \dfrac{d}{2}\,\sqrt{\left(\dfrac{u_C(d'_1)}{d'_1}\right)^2\ +\ \left(\dfrac{u_C(d'_2)}{d'_2}\right)^2} }
 \end{equation}
 
 
@@ -207,8 +277,56 @@ Para calcular la incertidumbre de $\lambda = \dfrac{d\ s}{3D}$, aplicamos la fó
 \subsubsection{Incertidumbre de $D$}
 Para calcular la incertidumbre de $D = f' \left( 2 - \dfrac{d^{2} + d'_{1}{}^{2}}{d\, d'_{1}} \right)$, aplicamos la fórmula de propagación de incertidumbres, y calculamos las derivadas parciales correspondientes, obteniendo:
 \begin{equation}
-    \boxed{u_C(D)= f'\ \sqrt{(u_C(d))^2\ (\dfrac{d_1'}{d^2} - \dfrac{1}{d_1'})^2 + (u_C(d_1'))^2\ (\dfrac{d}{d_1^2} - \dfrac{1}{d})^2}}
+    \boxed{u_C(D)= f'\ \sqrt{(u_C(d))^2\ \left(\dfrac{d'_1}{d^2} - \dfrac{1}{d'_1}\right)^2 + (u_C(d'_1))^2\ \left(\dfrac{d}{(d'_1)^2} - \dfrac{1}{d}\right)^2}}
 \end{equation}
+
+\subsection{A2: Procedimientos}
+\subsubsection{Error Relativo}
+El error relativo mide la precisión de una medición comparándola con el valor real. Se expresa como la diferencia entre el valor medido y el real, dividida por el valor real, generalmente en porcentaje. Es útil en informes científicos porque permite comparar la precisión de distintos experimentos, independientemente de la magnitud de los valores. Un error relativo bajo indica mayor exactitud, mientras que uno alto sugiere una mayor desviación.
+\begin{equation}
+   \epsilon_R\ =\  \dfrac{|v_{ter} - v_{re}|}{v_{te}}
+\end{equation}
+
+\subsection{Datos sin tratar}
+En esta sección se incluyen los datos sin tratar obtenidos durante la práctica, antes de cualquier análisis o procesamiento.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\rowcolor{lightgray}
+\multicolumn{5}{|c|}{\textbf{Medidas S}} \\
+\hline
+& \textbf{Inicio} & \textbf{Vueltas} & \textbf{Final} & \textbf{Medida (mm)} \\
+\hline
+   & 44 & 6 & 46 & 3,02 \\
+   & 46 & 6 & 45 & 3,01 \\
+   & 45 & 6 & 38 & 3,07 \\
+\hline
+\rowcolor{lightgray}
+\multicolumn{5}{|c|}{\textbf{Medidas Franjas Cerca} \quad $d'1$} \\
+\hline
+& \textbf{Inicio} & \textbf{Vueltas} & \textbf{Final} & \textbf{Medida (mm)} \\
+\hline
+   & 41 & 7 & 45 & 3,54 \\
+   & 37 & 7 & 32 & 3,55 \\
+   & 27 & 7 & 32 & 3,55 \\
+\hline
+\rowcolor{lightgray}
+\multicolumn{5}{|c|}{\textbf{Medidas Franjas Lejos} \quad $d'2$} \\
+\hline
+& \textbf{Inicio} & \textbf{Vueltas} & \textbf{Final} & \textbf{Medida (mm)} \\
+\hline
+   & 8  & 0 & 43 & 0,35 \\
+   & 10 & 0 & 44 & 0,34 \\
+   & 44 & 0 &  4 & 0,40 \\
+\hline
+\end{tabular}
+\caption{Datos experimentales medidos en el laboratorio de óptica.}
+\end{table}
+
+
+
 % Bibliografía
 
 \bibliographystyle{plain} % o el estilo que uses
