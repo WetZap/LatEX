@@ -59,7 +59,7 @@
 \fancyhf{}
 \cfoot{}
 \rhead{\thepage}
- \lhead{Práctica 4: Biprisma de Fresnel}
+ \lhead{Práctica 5: Microscopio. Anillos de Newton}
 
 
 \begin{document}
@@ -79,14 +79,14 @@
 \centering
     {\HRule{2 pt}} \\
     \vspace{0.5cm}
-    {\scshape\Huge {\textbf{Práctica 4: Biprisma de Fresnel}  }}  \\
+    {\scshape\Huge {\textbf{Práctica 5: Microscopio. Anillos de Newton}  }}  \\
     %AQUI SE PONE EL TITULO
     \vspace{1 mm}
     
     {\HRule{2 pt}}
 
     \vspace{1cm}
-    \Large 29/10/2025 \\
+    \Large 5/11/2025 \\
     \vspace{1cm}
  
     \normalfont\Large Universidad de Granada, Facultad de Ciencias \\
@@ -125,8 +125,74 @@
 
 \section{Resultados}
 
+\subsection{Microscopio}
+
+\subsection{Anillos de Newton}
+
+Ahora pasamos a la segunda parte de la práctica, en la que se nos pide medir los radios de los anillos de Newton. Para ello, utilizamos un microscopio para observar los anillos y medir sus radios correspondientes a diferentes órdenes.
+
+En la tabla \ref{tab:r1_r2} se muestran los valores medidos en el laboratorio de los radios de los anillos de Newton $r_1$ y $r_2$ correspondientes a los órdenes $k=1$ y $k=7$, respectivamente. Cada medida se realizó tres veces para obtener un valor más preciso, y la incertidumbre asociada a cada medida es de $u_C(r_1) = 0{,}02$\,mm y $u_C(r_2) = 0{,}02$\,mm.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\rowcolor[rgb]{ .651,  .788,  .925}
+$r_{1}$(mm) & $r_{2}$(mm) \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 1,16 & 3,87 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 1,17 & 3,83 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 1,19 & 3,59 \\ \hline
+\end{tabular}
+\caption{Valores medidos en el laboratorio de los radios de los anillos de Newton $r_1$ y $r_2$ correspondientes a los órdenes $k=1$ y $k=7$, respectivamente.La incertidumbre asociada a cada medida es de $u_C(r_1) = 0{,}02$\,mm y $u_C(r_2) = 0{,}02$\,mm.}
+\label{tab:r1_r2}
+\end{table}
+
+
+Una vez obtuvimos los promedios de los datos medidos con sus incertidumbres, procedimos a calcular el radio de curvatura $R$ de la lente esférica mediante la fórmula proporcionada en el informe de prácticas\cite{InfoOpticaPrisma}:
+\begin{equation}
+    R = \dfrac{r^2_{k1}-r^2_{k2}}{\lambda\ (k_1 - k_2)}
+\end{equation}
+Donde $r_{k1}$ y $r_{k2}$ son los radios medios de los anillos de Newton correspondientes a los órdenes $k_1$ y $k_2$, respectivamente, y $\lambda$ es la longitud de onda de la luz utilizada (en este caso, la luz amarilla del sodio con $\lambda = 589{,}3$\,nm). Los valores de $k_1$ y $k_2$ son los órdenes de los anillos medidos, en nuestro caso $k_1 = 1$ y $k_2 = 7$. 
+
+Sustituyendo los valores obtenidos en la fórmula, calculamos $R$, obteniendo así el siguiente resultado, $R_1=3600\pm	100$ (mm).
+
+Tambien se nos pedia obtener el valor de $R$ mediante otro método,este era un ajuste por minimos cuadrados de los datos obtenidos. Para ello, representamos gráficamente $r^2$ frente a $k\lambda$ y realizamos un ajuste lineal de los datos. La pendiente de la recta ajustada nos permite calcular el radio de curvatura $R$ mediante la relación:
+\begin{equation}
+    R = \dfrac{1}{\text{pendiente}}
+\end{equation}
+
+Nosotros decidimos realizar 5 ordenes de anillos, desde el $k=1$ hasta el $k=5$ y tambien medimos los radios de los anillos correspondientes tres veces para obtener un valor más preciso, llegando así a los siguientes resultados:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\rowcolor[rgb]{ .651,  .788,  .925}
+$r^2$ (mm)& $u_C(r^2)$ (mm) \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 1,42 & 0,06 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 2,3 & 0,1 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 4,1 & 0,2 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 6,4 & 0,3 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 11 & 1 \\ \hline
+\end{tabular}
+\caption{Valores medidos en el laboratorio de los radios de los anillos de Newton $r$ correspondientes a los órdenes $k=1$ y $k=5$.La incertidumbre asociada a cada medida ha sido calculado mediante tipo A y tipo B.}
+\label{tab:r2_ur}
+\end{table}
+
+Esto nos permite realizar el ajuste lineal de los datos, obteniendo la siguiente gráfica:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{AnillosNewton.png}
+    \caption{Ajuste lineal de los datos obtenidos en la práctica de los anillos de Newton. La pendiente de la recta ajustada nos permite calcular el radio de curvatura $R$ de la lente esférica.}
+    \label{fig:AnillosNewton}
+\end{figure}
+
+A partir del ajuste lineal, obtenemos la pendiente de la recta ajustada, que es $m = 0,00028745\pm 0,00000004$ (mm)$^{-1}$. Utilizando esta pendiente, calculamos el radio de curvatura $R$ mediante la relación mencionada anteriormente, obteniendo así el siguiente resultado, $R_2=3470\pm50$ (mm).
+
 \section{Conclusiones}
 
+En esta práctica hemos aprendido a utilizar un microscopio compuesto para observar objetos pequeños y medir sus dimensiones con precisión. Hemos calibrado el microscopio utilizando una micrométrica y hemos medido el tamaño de varias muestras, obteniendo resultados consistentes con las dimensiones conocidas de los objetos. Además, hemos estudiado los anillos de Newton formados por la interferencia de la luz reflejada entre una lente esférica y una superficie plana. Hemos medido los radios de los anillos correspondientes a diferentes órdenes y hemos calculado el radio de curvatura de la lente utilizando dos métodos distintos: mediante la fórmula directa y mediante un ajuste lineal de los datos obtenidos. Ambos métodos nos han proporcionado resultados semejantes, lo que confirma la validez de nuestras mediciones y cálculos.
 
 
 \section{Agradecimientos}
@@ -190,24 +256,14 @@ y como $\dfrac{\partial f(x)}{\partial x} = \dfrac{1}{K}$, finalmente obtenemos:
     \boxed{u_C(f(x)) = \dfrac{u_C(x)}{K}}
 \end{equation}
 
-\subsubsection{Incertidumbre de $d$}
-Para calcular la incertidumbre de $d = \sqrt{d'_{1} d'_{2}}$, aplicamos la fórmula de propagación de incertidumbres, y calculamos las derivadas parciales correspondientes, obteniendo:
-\begin{equation}
-    \boxed{u_C(d) = \dfrac{1}{2\ d}\sqrt{(d_1\ u_C(d_1))^2\ +\ (d_2\ u_C(d_2))^2} }
-\end{equation}
+\subsubsection{Incertidumbre de $R$}
+La incertidumbre de $R$ se calcula mediante la propagación de incertidumbres, considerando la función $R = \dfrac{r^2_{k1}-r^2_{k2}}{\lambda\ (k_1 - k_2)}$, donde $\lambda$ es una constante sin incertidumbre. Por tanto, aplicando la fórmula de propagación de incertidumbres, obtenemos:
 
 
-\subsubsection{Incertidumbre de $\lambda$}
-Para calcular la incertidumbre de $\lambda = \dfrac{d\ s}{3D}$, aplicamos la fórmula de propagación de incertidumbres, y calculamos las derivadas parciales correspondientes, obteniendo:
 \begin{equation}
-    \boxed{u_C(\lambda) = \dfrac{sd}{3D}\sqrt{(\dfrac{u_C(s)}{s})^2 + (\dfrac{u_C(d)}{d})^2 + (\dfrac{u_C(D)}{D})^2}}
+    \boxed{u_C(R) = \dfrac{1}{\lambda(k_1-k_2)}\sqrt{((2 r_{k1}- r_{k2}^2)u_C(r_{k1}))^2 + ((r_{k1}^2-2 r_{k2})u_C(r_{k2}))^2}}
 \end{equation}
 
-\subsubsection{Incertidumbre de $D$}
-Para calcular la incertidumbre de $D = f' \left( 2 - \dfrac{d^{2} + d'_{1}{}^{2}}{d\, d'_{1}} \right)$, aplicamos la fórmula de propagación de incertidumbres, y calculamos las derivadas parciales correspondientes, obteniendo:
-\begin{equation}
-    \boxed{u_C(D)= f'\ \sqrt{(u_C(d))^2\ (\dfrac{d_1'}{d^2} - \dfrac{1}{d_1'})^2 + (u_C(d_1'))^2\ (\dfrac{d}{d_1^2} - \dfrac{1}{d})^2}}
-\end{equation}
 % Bibliografía
 
 \bibliographystyle{plain} % o el estilo que uses
