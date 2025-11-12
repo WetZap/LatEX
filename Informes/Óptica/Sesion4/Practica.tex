@@ -1,0 +1,204 @@
+\documentclass[10pt,onecolumn]{article}
+
+
+%Aquí vienen todos los paquetes que se van a usar
+
+\usepackage[spanish]{babel}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+\usepackage[bottom]{footmisc}
+\usepackage{comment}
+\usepackage{subcaption} % Añade esto en el preámbulo si no lo tienes
+\usepackage{colortbl} %Permite agregar color a las celdas de las tablas.
+\usepackage{mathtools} %Contiene herramientas adicionales para componer fórmulas matemáticas en LaTeX.
+\usepackage{algorithm2e} %Facilita la sintaxis de los algoritmos.
+\usepackage[T1]{fontenc} %Hace posible escribir en diferentes idiomas.
+\usepackage{lmodern} %Carga la fuente Latin modern en el documento.
+\usepackage{microtype} %Mejoras tipográficas (interletrado y protrusión) para una composición más estética.
+\usepackage{float} %Hace posible el uso de [H] en las tablas y gráficas.
+\usepackage{blindtext} %Necesario para usar este tipo de comentarios.
+\usepackage{multicol} %Posibilidad (no mostrada aquí) de escribir en varias columnas para una misma página.
+\usepackage{wrapfig} %Permite que las figuras y tablas se ajusten mejor al texto.
+\usepackage{breqn} %Ajusta ecuaciones largas al ancho de la página, teniendo que romper y bajar a una fila más abajo parte de la ecuación para que quepa dentro de los márgenes.
+\usepackage{array} %Permite personalizar más ampliamente las columnas de las tablas de LaTeX.
+\usepackage{booktabs} %Tablas de alta calidad (\toprule, \midrule, \bottomrule) sin líneas verticales.
+\usepackage{eurosym} %Posibilidad de usar el símbolo € en el texto.
+\usepackage{amsmath} %Mejoras para la escritura de ecuaciones matemáticas.
+\usepackage{mathrsfs} %Proporciona el alfabeto de letras minúsculas de Ralph Smith.
+\usepackage{indentfirst} %Sangra el primer párrafo de un encabezado del documento, si por ejemplo el primer párrafo queremos que esté sangrado.
+\usepackage{amsthm} %Facilita la escritura de demostraciones de afirmaciones matemáticas de toda clase.
+\usepackage[font=small,labelfont=bf]{caption} %Formatea los títulos de figuras y gráficas.
+\usepackage{graphicx} %Facilita la inclusión de imágenes en LaTeX.
+\usepackage[titles]{tocloft} %Posibilidad de personalizar el formato del Índice.
+\usepackage[hidelinks]{hyperref} %Crea hipervínculos en el PDF generado del documento de texto final, para poder navegar a través y externamente al documento.
+\usepackage{bookmark} %Evita el mensaje de rerunfilecheck sobre Practica.out
+\setlength{\parindent}{12pt} %Establece la sangría de la primera línea de cada párrafo a {...pt}.
+\usepackage{multirow} %Posibilidad de combinar filas de las tablas de LaTeX.
+\usepackage{parskip} %Modifica los espacios entre párrafos para que no haya sangría, sino que se genere un espacio entre medias predeterminado. 
+\usepackage{fancyhdr} %Creación de encabezados y pies de página.
+\usepackage[utf8]{inputenc} %Permite usar caracteres especiales y letras acentuadas directamente en el código LaTeX.
+\usepackage{bm} %Posibilidad de escribir símbolos en negrita en lenguaje matemático. 
+\usepackage{url} %Inclusión de direcciones URL en el documento.
+\usepackage{siunitx} %Permite la escritura de cantidades físicas y unidades en el documento.
+% Configuración de siunitx para notación española (coma decimal) y detección de estilos
+% Configuración explícita de separador decimal en español
+\sisetup{output-decimal-marker = {,}, input-decimal-markers = {,}, detect-weight=true, detect-family=true}
+%\usepackage{geometry} %Posibilidad de personalizar las dimensiones del documento.
+% Eliminado paquete geometry duplicado (ya cargado arriba con opciones)
+% Eliminado fontenc duplicado (ya cargado arriba)
+
+
+
+%Aquí se definen cosas de colores y movidas fancys
+\usepackage[dvipsnames]{xcolor}
+\definecolor{nube}{RGB}{188,108,37}
+\definecolor{salmon}{RGB}{248, 131, 121}
+
+%Aquí tenemos un poco el formateo de la página
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{}
+\rhead{\thepage}
+ \lhead{Práctica 3: Análisis del estado de polarización}
+
+
+\begin{document}
+\renewcommand{\headrulewidth}{0.5pt}
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\renewcommand{\refname}{Bibliografía}
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\contentsname}{Índice}
+\renewcommand{\figurename}{Figura}
+\captionsetup{labelfont={color=nube}}
+\addtocontents{toc}{\hspace{-7.5mm} \textbf{Capítulos}}
+\addtocontents{toc}{\hfill \textbf{Página} \par}
+\addtocontents{toc}{\vspace{-2mm} \hspace{-7.5mm} \hrule \par}
+
+\onecolumn
+\begin{titlepage}
+\centering
+    {\HRule{2 pt}} \\
+    \vspace{0.5cm}
+    {\scshape\Huge {\textbf{Práctica 3: Análisis del estado de polarización}  }}  \\
+    %AQUI SE PONE EL TITULO
+    \vspace{1 mm}
+    
+    {\HRule{2 pt}}
+
+    \vspace{1cm}
+    \Large 5/11/2025 \\
+    \vspace{1cm}
+ 
+    \normalfont\Large Universidad de Granada, Facultad de Ciencias \\
+    \vspace{0.5cm}
+    
+    
+     \normalfont\Large Grado en Físicas \\
+    \vspace{0.5cm}
+    \normalfont Óptica I\\%
+    \vspace{1.5cm}
+
+\centering
+    {\includegraphics[width=0.5\textwidth]{UGR-MARCA-01-color.jpg}\par}
+
+\vfill
+    \vspace{1cm}
+    \scshape\Large Jorge del Rio López \\
+    \scshape\Large Paula Roca Gómez\\
+
+    \vspace{0.5cm}
+    \scshape\Large P5
+
+\vfill
+
+\end{titlepage}
+
+\selectlanguage{spanish}
+
+\tableofcontents %único comando para manejar TODO el índice.
+\newpage
+
+\HRule{0.5pt} %Controla los márgenes horizontales visibles (líneas) y el grosor de la línea (...pt).
+
+\begin{abstract}
+\end{abstract}
+
+\section{Resultados}
+
+\subsubsection{Estudio de las luces polarizadas}
+
+\subsubsection{Estudio de la luz elípticamente polarizada}
+
+
+\section{Conclusiones}
+
+
+
+\section{Agradecimientos}
+
+
+\newpage
+\section{Apéndices}
+\subsection{A1: Cálculo de incertidumbres} 
+\subsubsection{Sensibilidad de los instrumentos}
+En los cálculos se ha considerado la sensibilidad (resolución) de los instrumentos empleados:
+\begin{itemize}
+    \item Micrómetro para $s$ y $d'_{1,2}$: $\delta = 0{,}01$\,mm (incertidumbre tipo B asociada $u_B = \delta/\sqrt{12} \approx 0{,}003$\,mm).
+    \item Distancia focal $f'$ del sistema: se ha tratado como dato sin incertidumbre
+\end{itemize}
+\subsubsection{Cálculo de la desviación estándar}
+La desviación estándar se utilizará para el cálculo de la incertidumbre tipo A; su expresión es:
+\begin{equation}\centering
+    s = \sqrt{\dfrac{1}{N - 1} \sum_{i=1}^{N} (x_i - \bar{x})^2}
+\end{equation}
+
+\subsubsection{Incertidumbre tipo A}
+La incertidumbre tipo A se evalúa mediante análisis estadístico de datos repetidos, basada en su dispersión o desviación estándar, para lograr dar un valor que se asemeje lo máximo posible al real; su expresión es la siguiente:
+\begin{equation}\centering
+u_A = \dfrac{s}{\sqrt{n}}
+\end{equation}
+donde $s$ es la desviación estándar y $n$ el número de medidas realizadas.
+
+\subsubsection{Incertidumbre tipo B}
+La incertidumbre tipo B se debe al error que ocasiona medir con instrumentos inexactos; se calcula a partir de la resolución ($\delta$) del instrumento utilizado:
+\begin{equation}\centering
+    u_B = \dfrac{\delta}{\sqrt{12}}
+\end{equation}
+
+\subsubsection{Incertidumbre Combinada}
+Tras obtener la incertidumbre tipo A y la tipo B, debemos combinarlas para dar un valor concreto de incertidumbre; se calcula de la siguiente forma:
+
+\begin{equation}
+    u_C = \sqrt{(u_A)^2\ +\ (u_B)^2}
+\end{equation}
+
+\subsubsection{Incertidumbre debida a medida indirecta}
+Dado que usaremos este tipo de incertidumbre en varias ocasiones, la dejaremos aquí definida para evitar 
+tener que repetir el proceso cada vez. Sea $f(x_1,x_2,\ldots,x_n)$ una función con $n$ variables; la incertidumbre
+de esta función se calcula mediante la propagación de incertidumbres, y obtenemos la siguiente expresión:
+
+\begin{equation}
+    \boxed{u_C(f(x_1,x_2,\ldots,x_n)) = \sqrt{\sum_{i=1}^{n} \left(\dfrac{\partial f}{\partial x_i}\right)^2\ u_C(x_i)^2}}
+\end{equation}
+
+Donde $\dfrac{\partial f}{\partial x_i}$ es la derivada parcial de $f$ respecto a la variable $x_i$, y $u_C(x_i)$ es la incertidumbre combinada de la variable $x_i$.
+Este cálculo nos proporciona la incertidumbre de una función que depende de varias variables, teniendo en cuenta las incertidumbres individuales de cada variable.
+
+\subsubsection{Incertidumbre por cambio de unidades}
+Esta incertidumbre la emplearemos cuando un valor se encuentre en unidades distintas a las del SI. 
+Se calcula mediante propagación de incertidumbres, considerando la función 
+$f(x) = \dfrac{x}{K}$, con $K$ una constante real. Entonces, $u_C(f(x)) = \sqrt{\left(\dfrac{\partial f(x)}{\partial x}\right)^2 u_C(x)^2}$, 
+y como $\dfrac{\partial f(x)}{\partial x} = \dfrac{1}{K}$, finalmente obtenemos:
+
+\begin{equation}
+    \boxed{u_C(f(x)) = \dfrac{u_C(x)}{K}}
+\end{equation}
+
+
+
+% Bibliografía
+
+\bibliographystyle{plain} % o el estilo que uses
+\bibliography{biblio,references} % sin extensión, apunta a biblio.bib
+
+\end{document}
