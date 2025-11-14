@@ -121,11 +121,42 @@
 \HRule{0.5pt} %Controla los márgenes horizontales visibles (líneas) y el grosor de la línea (...pt).
 
 \begin{abstract}
+    En esta práctica se trabaja con un microscopio para profundizar en el concepto de interferencia de ondas. Se ha medido con éxito el aumento del objetivo del microscopio, $\beta=4,20 \pm 0,31$ , y se han estudiado los anillos de Newton. Mediante medidas de separación entre los anillos se ha calculado el radio de curvatura de la lente esférica con dos métodos distintos, obteniendose $R_1=3600\pm 100$mm y $R_2=3470\pm 50$ mm. 
 \end{abstract}
 
 \section{Resultados}
 
-\subsection{Microscopio}
+\subsection{Medida del aumento del objetivo}
+Comenzamos calculando al aumento del objetivo, $\beta$ obtenido como 
+\begin{equation} \label{aumento}
+    \beta=\frac{y'_1}{y_1}
+\end{equation} 
+donde $y'_1$ es el tamaño de la imagen intermedia y $y_1$ el tamaño del objeto. Para ello utilizamos el ocular micrométrico, que contiene una escala que permite medir tamaños. El tamaño a medir se trata de un número determinado de divisiones del micrómetro, las cuáles están espaciadas 0,01 cm. En concreto se midieron cuatro divisiones, ya que un mayor número de divisiones, y un mayor tamaño del objeto a estudiar, reduce la incertidumbre intrínseca de la medida con el ocular micrométrico. 
+En nuestro caso, el tamaño del objeto es $y_1=0,4$ mm.
+El tamaño de la imagen intermedia se calculó haciendo la equivalencia del giro del tornillo micrométrico del ocular con el desplazamiento que implica en el retículo. Se tomaron tres medidas:
+
+
+\begin{table}[h!]
+\centering
+
+\begin{tabular}{|>{\columncolor{blue!20}}c|}
+\hline
+\rowcolor[rgb]{ .651,  .788,  .925}
+$y_1'$ (mm) \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 1,52   \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 1,55   \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 1,98   \\ \hline
+\end{tabular}
+\caption{Medidas tomadas del tamaño de la imagen intermedia del microscopio (mm)}
+\end{table}
+
+La desviación estándar entre ellas es del 21$\%$. Se tomaron 3 medidas por falta de tiempo, pero dada la dispersión obtenida, lo correcto sería tomar al menos 10 medidas para poder sacar conclusiones sólidas sobre los datos.
+Calculamos el promedio de los datos y obtenemos $y'_1=1,60\pm 0,12$ mm.
+Aplicamos la expresión \eqref{aumento} y obtenemos un aumento de $\beta=4,20\pm 0,31$.
+Teniendo en cuenta que el aumento proporcionado por el fabricante es 4$\times$, el error relativo es del 5,2$\%$. Así que pese al reducido número de medidas tomadas podemos afirmar que el valor obtenido es razonable, y que tanto el montaje esperimental como la toma y el tratamiendo de los datos ha sido correcto.
+
+
+
 
 \subsection{Anillos de Newton}
 
@@ -192,7 +223,7 @@ A partir del ajuste lineal, obtenemos la pendiente de la recta ajustada, que es 
 
 \section{Conclusiones}
 
-En esta práctica hemos aprendido a utilizar un microscopio compuesto para observar objetos pequeños y medir sus dimensiones con precisión. Hemos calibrado el microscopio utilizando una micrométrica y hemos medido el tamaño de varias muestras, obteniendo resultados consistentes con las dimensiones conocidas de los objetos. Además, hemos estudiado los anillos de Newton formados por la interferencia de la luz reflejada entre una lente esférica y una superficie plana. Hemos medido los radios de los anillos correspondientes a diferentes órdenes y hemos calculado el radio de curvatura de la lente utilizando dos métodos distintos: mediante la fórmula directa y mediante un ajuste lineal de los datos obtenidos. Ambos métodos nos han proporcionado resultados semejantes, lo que confirma la validez de nuestras mediciones y cálculos.
+En esta práctica hemos aprendido a utilizar un microscopio compuesto para observar objetos pequeños y medir sus dimensiones con precisión. Hemos calibrado el microscopio para observar el micrómetro y hemos medido el tamaño de varias muestras, obteniendo resultados consistentes con las dimensiones conocidas de los objetos. Además, hemos estudiado los anillos de Newton formados por la interferencia de la luz reflejada entre una lente esférica y una superficie plana. Hemos medido los radios de los anillos correspondientes a diferentes órdenes y hemos calculado el radio de curvatura de la lente utilizando dos métodos distintos: mediante la fórmula directa y mediante un ajuste lineal de los datos obtenidos. Ambos métodos nos han proporcionado resultados semejantes, lo que confirma la validez de nuestras mediciones y cálculos.
 
 
 \section{Agradecimientos}
@@ -246,15 +277,13 @@ de esta función se calcula mediante la propagación de incertidumbres, y obtene
 
 Donde $\dfrac{\partial f}{\partial x_i}$ es la derivada parcial de $f$ respecto a la variable $x_i$, y $u_C(x_i)$ es la incertidumbre combinada de la variable $x_i$.
 Este cálculo nos proporciona la incertidumbre de una función que depende de varias variables, teniendo en cuenta las incertidumbres individuales de cada variable.
-\subsubsection{Incertidumbre por cambio de unidades}
-Esta incertidumbre la emplearemos cuando un valor se encuentre en unidades distintas a las del SI. 
-Se calcula mediante propagación de incertidumbres, considerando la función 
-$f(x) = \dfrac{x}{K}$, con $K$ una constante real. Entonces, $u_C(f(x)) = \sqrt{\left(\dfrac{\partial f(x)}{\partial x}\right)^2 u_C(x)^2}$, 
-y como $\dfrac{\partial f(x)}{\partial x} = \dfrac{1}{K}$, finalmente obtenemos:
-
+\subsection{Incertidumbre de $\beta$}
+Se obtuvo a partir de la incertidumbre de $y'_1$, ya que se tomó $y_1$ como valor exacto.
+La expresión es:
 \begin{equation}
-    \boxed{u_C(f(x)) = \dfrac{u_C(x)}{K}}
+    u_C(\beta)=\dfrac{\partial \beta}{\partial y'_1} u_C(y'_1)=\dfrac{u(y'_1)}{y_1}
 \end{equation}
+Y u_C(y'_1) es la incertidumbre combinada de la incertidumbre tipo A de las medidas, y la incertidumbre tipo B. 
 
 \subsubsection{Incertidumbre de $R$}
 La incertidumbre de $R$ se calcula mediante la propagación de incertidumbres, considerando la función $R = \dfrac{r^2_{k1}-r^2_{k2}}{\lambda\ (k_1 - k_2)}$, donde $\lambda$ es una constante sin incertidumbre. Por tanto, aplicando la fórmula de propagación de incertidumbres, obtenemos:
