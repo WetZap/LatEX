@@ -86,7 +86,7 @@
     {\HRule{2 pt}}
 
     \vspace{1cm}
-    \Large 5/11/2025 \\
+    \Large 12/11/2025 \\
     \vspace{1cm}
  
     \normalfont\Large Universidad de Granada, Facultad de Ciencias \\
@@ -121,78 +121,78 @@
 \HRule{0.5pt} %Controla los márgenes horizontales visibles (líneas) y el grosor de la línea (...pt).
 
 \begin{abstract}
+    En esta práctica se han obtenido y estudiado diferentes estados de polarización de un haz de luz emergente de una lámpara de sodio. Se han utilizado dos polarizadores lineales y dos láminas de cuarto de onda, costruyendo en cada momento el sistema que se quería estudiar. Se ha observado una amplia variedad de estados de polarización y, en el caso de la polarización elíptica, se ha podido determinar por completo sus características.
 \end{abstract}
 
 \section{Resultados}
+El procedimiento general consiste en la realización de una o más pruebas con sistemas analizadores para determinar el estado de polarización de la luz estudiada. 
+La primera prueba consiste en colocar un polarizador lineal tras el haz a estudiar y girar su eje continuamente.
+La segunda prueba consiste en colocar una lamina $\lambda/4$ y un polarizador lineal tras el haz a estudiar. Se presentan dos variantes. La variante 2A consiste en girar el eje de trasmisión del polarizador y observar el comportamiento de la luz, y la 2B consiste en girar sendas componentes del analizador para buscar el mínimo de luz transmitida.
+La elección de las pruebas a realizar se hará siguiendo el siguiente diagrama, propocionado en PONER EL GUION EN BIBLIOGRAFIA Y REFERENCIARLO.
 
-\subsubsection{Estudio de las luces polarizadas}
+\begin{figure}[H]
+\centering
 
-\subsubsection{Estudio de la luz elípticamente polarizada}
+{\includegraphics[width=0.9\textwidth]{flujoestadopol.png}\par}\caption{Diagrama de flujo seguido para la elección de las pruebas}
+\end{figure}
 
+\subsection{Referencia de extinción}
+Comenzamos observando la referencia de extinción de nuestro sistema. Para ello observamos el haz proviniente de la fuente a través de dos polarizadores, y los giramos hasta obtener el mínimo que tomaremos como extinción. Observamos que el eje de extinción está ligeramente desplazado de la posición del fabricante, correspondiendo a los valores de 2º y 92º.
+
+\subsection{Determinación de las posiciones de las líneas neutras de las láminas}
+En este caso colocamos de nuevo los dos polarizadores de forma que estén en extinción, y colocamos una de las láminas $\lambda/4$ entre ellos. En este momento la giramos hasta que se observa de nuevo la extinción. En este momento está alineados los ejes de trasmisión de los polarizadores y las líneas neutras de la lámina. Esta situación se dio en la lámina tomada como 1 a 82,5º; y en la segunda lámina a 114º.
+
+\subsubsection{Estudio de la polarización del haz}
+En este momento ya estamos en condiciones de hacer un estudio preciso de la polarización de distintos haces provinientes de una lámpara de sodio.
+
+\subsubsection*{Luz directa de la lámpara de sodio}
+Comenzamos estudiando el haz de sodio sin alterar. Para ello realizamos la prueba uno en el mismo.
+Al girar su eje una vuelta completa no se aprecian cambios en la intensidad. Como consecuencia, elegimos someter la luz estudiada a la prueba 2A. De nuevo, al colocar el polarizador y girar su eje de trasmisión no observamos cambios en su intensidad. En este momento tenemos la información necessaria para afirmar que la lámpara de sodio emite luz natural, lo que es un resultado esperado ya que no se sometió a ningún tipo de alteración.
+
+\subsubsection*{Luz de lámpara de sodio a través de un polarizador}
+El segundo haz estudiado de trata de el mismo de antes pero añadiendo un polarizador lineal. 
+Para este apartado solo hizo falta realizar la prueba uno, ya que tal y como esperábamos se obtuvo la situación de extinción. Al hacer pasar el haz por el polarizador lineal se extingue toda una componente de la luz (se polariza linealmente), entonces, al colocar el segundo polarizador y girarlo, el mínimo ocurrirá cuando el eje de extinción del segundo polarizador sea perpendicular al del primero. Es la misma situación que se ha provocado para medir las posiciones de los ejes de extinción de los polarizadores.
+Por tanto, determinamos que el haz estudiado en este caso se encuentra linealmente polarizado.
+
+\subsubsection*{Luz de la lámpara de sodio a través de un polarizador y una lámina $\lambda/4$}
+Colocamos la lámina con sus líneas neutras a 45º con el eje de trasmisión del polarizador.
+Anteriormente hemos comprobado que se de la extinción con dos polarizadores y la lámina $\lambda/4$ se requiere que las líneas neutras de la lámina estén alineadas con los ejes de extinción de los polarizadores. En este caso, las hemos colocado formando 45º, por tanto, no solo no se va a extinguir en la primera prueba, sino que las componentes en cada eje van a ser iguales, luego esperamos luz circular. Para comprobarlo, comenzamos sometiendo al haz a la primera prueba y observamos, en efecto, que no hay cambios en la intensidad de la luz al girar el polarizador del sistema analizador. Se corresponde con lo esperado hasta este momento. Para ser más específicos, realizamos la prueba 2A . En este momento se observa que sí que aparece un mínimo de intensidad pero es no nulo.
+Concluimos que el haz estudiado se trata realmente de una mezcla de luz circular y natural.
+
+\subsubsection*{Luz de la lampara de sodio a través del dispositivo problema}
+Colocamos delante de la lámpara de sodio el dispositivo a estudiar mediante las pruebas necesarias. 
+Tras someter el haz a la primera prueba, observamos la extinción de la luz. Por tanto, sin necesidad de realizar una segunda prueba sabemos con seguridad que el dispositivo problema ha polarizado linealmente la luz de la lámpara de sodio.
+
+\subsubsection*{Luz de la lámpara de sodio a través del dispositivo problema girado 180º}
+Giramos el dispositivo problema 180º y volvemos a realizar la primera prueba. 
+Al girar el eje del polarizador del analizador observamos en el haz un mínimo no nulo, lo que reduce las posibilidades a una mezcla de luz lineal y natural, luz elípticamente polarizada, o una mezcla de luz elíptica y natural. La distinción se hace mediante la prueba 2B. En este caso añadimos la lámina $\lambda/4$ al sistema analizador y giramos los dos componentes hasta observar el mínimo de luz transmitida. En este caso se observó la extinción completa, luego podemos afirmar que este caso el dispositivo problema provocó una polarización elíptica del haz de la lámpara de sodio. 
+
+Señalamos que el hecho de que la polarización que sufre el haz de la lámpara de sodio depende de la orientación del dispositivo problema, lo caracteriza como medio anisótropo.
+
+En este caso podemos ser más precisos en el estado de polarización del haz. Para ello lo estudiamos con más profundidad de la siguiente forma. 
+Volvemos a colocar el dispositivo analizador de la prueba 1 para encontrar las posiciones del eje de trasmisión del polarizador. Encontramos que el mínimo de intensidad (eje menor) se encuentra a 6º y el máximo de intensidad, correspondiente al eje mayor, se encuentra a 88º. Además, se comprueba que estas posiciones corresponden con las líneas neutras de la lámina $\lambda/4$ en el mínimo de la prueba 2B, para ello volvemos a montar el sistema analizador correspondiente. 
+Para obtener la razón de semiejes anotamos la posición del polarizador del analizador(83º), para obtener la posición que forma 90º con esa, que es la que estudiamos para obtener la razón de semiejes.
+El ángulo cuya tangente será la razón de semiejes de trata del ángulo formado entre el eje horizontal de la elipse con la posición determinada anteriormente. En nuestro caso el eje horizontal de la elipse se encuentra a 88º, y la posición buscada es 83-92+90=81º, luego el ángulo que buscamos $\beta=88-81=7$º
+Por último, la razón de semiejes es $tg(7)=\frac{b}{a}=0,1228$.
+
+Por último, determinamos el sentido de giro. Para ello suponemos que el desfase introducido por la lámina es $\pi/2$. Dado que la dirección de vibración de la luz tras atravesar la lámina de cuarto de onda de encontraba en el 1º y 3º cuadrante, el desfase introducido se trata de $3\pi/2$. El desfase total es $2\pi$ y el sentido de giro es levógiro.
 
 \section{Conclusiones}
-
+En esta práctica hemos podido profundizar en el concepto de polarización de la luz y en el comportamiento de la misma al atravesar medios anisótropos.
+Mediante la colocación de sistemas que modifican la luz, hemos convertido un haz de sodio desde luz natural a luz linealmente polarizada o mezcla de luz natural y circular, lo que conlleva una muestra clara del funcionamiento de los polarizadores lineales y los retardadores.
+Por otro lado, hemos experimentado el comportamiento de la luz al traspasar un medio anisótropo mediante la observación del haz al atravesarlo en dos de sus direcciones, lo que ha dado un resultado revelador y acorde a lo esperado.
+En una de las direcciones se ha obtenido luz elípticamente polarizada, así que hemos podido determinar por completo su polarización.
+Se destaca lo clarificador que ha sido esta práctica sobre el concepto de ejes de extinción y trasmisión de los polarizadores lineales.
 
 
 \section{Agradecimientos}
+Nos gustaría agradecer al Departamento de Óptica de la Universidad de Granada por proporcionarnos
+los medios y el material necesarios para llevar a cabo esta práctica, así como a nuestro profesor por su guía y apoyo durante el desarrollo de la misma.
 
 
-\newpage
-\section{Apéndices}
-\subsection{A1: Cálculo de incertidumbres} 
-\subsubsection{Sensibilidad de los instrumentos}
-En los cálculos se ha considerado la sensibilidad (resolución) de los instrumentos empleados:
-\begin{itemize}
-    \item Micrómetro para $s$ y $d'_{1,2}$: $\delta = 0{,}01$\,mm (incertidumbre tipo B asociada $u_B = \delta/\sqrt{12} \approx 0{,}003$\,mm).
-    \item Distancia focal $f'$ del sistema: se ha tratado como dato sin incertidumbre
-\end{itemize}
-\subsubsection{Cálculo de la desviación estándar}
-La desviación estándar se utilizará para el cálculo de la incertidumbre tipo A; su expresión es:
-\begin{equation}\centering
-    s = \sqrt{\dfrac{1}{N - 1} \sum_{i=1}^{N} (x_i - \bar{x})^2}
-\end{equation}
 
-\subsubsection{Incertidumbre tipo A}
-La incertidumbre tipo A se evalúa mediante análisis estadístico de datos repetidos, basada en su dispersión o desviación estándar, para lograr dar un valor que se asemeje lo máximo posible al real; su expresión es la siguiente:
-\begin{equation}\centering
-u_A = \dfrac{s}{\sqrt{n}}
-\end{equation}
-donde $s$ es la desviación estándar y $n$ el número de medidas realizadas.
 
-\subsubsection{Incertidumbre tipo B}
-La incertidumbre tipo B se debe al error que ocasiona medir con instrumentos inexactos; se calcula a partir de la resolución ($\delta$) del instrumento utilizado:
-\begin{equation}\centering
-    u_B = \dfrac{\delta}{\sqrt{12}}
-\end{equation}
 
-\subsubsection{Incertidumbre Combinada}
-Tras obtener la incertidumbre tipo A y la tipo B, debemos combinarlas para dar un valor concreto de incertidumbre; se calcula de la siguiente forma:
-
-\begin{equation}
-    u_C = \sqrt{(u_A)^2\ +\ (u_B)^2}
-\end{equation}
-
-\subsubsection{Incertidumbre debida a medida indirecta}
-Dado que usaremos este tipo de incertidumbre en varias ocasiones, la dejaremos aquí definida para evitar 
-tener que repetir el proceso cada vez. Sea $f(x_1,x_2,\ldots,x_n)$ una función con $n$ variables; la incertidumbre
-de esta función se calcula mediante la propagación de incertidumbres, y obtenemos la siguiente expresión:
-
-\begin{equation}
-    \boxed{u_C(f(x_1,x_2,\ldots,x_n)) = \sqrt{\sum_{i=1}^{n} \left(\dfrac{\partial f}{\partial x_i}\right)^2\ u_C(x_i)^2}}
-\end{equation}
-
-Donde $\dfrac{\partial f}{\partial x_i}$ es la derivada parcial de $f$ respecto a la variable $x_i$, y $u_C(x_i)$ es la incertidumbre combinada de la variable $x_i$.
-Este cálculo nos proporciona la incertidumbre de una función que depende de varias variables, teniendo en cuenta las incertidumbres individuales de cada variable.
-
-\subsubsection{Incertidumbre por cambio de unidades}
-Esta incertidumbre la emplearemos cuando un valor se encuentre en unidades distintas a las del SI. 
-Se calcula mediante propagación de incertidumbres, considerando la función 
-$f(x) = \dfrac{x}{K}$, con $K$ una constante real. Entonces, $u_C(f(x)) = \sqrt{\left(\dfrac{\partial f(x)}{\partial x}\right)^2 u_C(x)^2}$, 
-y como $\dfrac{\partial f(x)}{\partial x} = \dfrac{1}{K}$, finalmente obtenemos:
-
-\begin{equation}
-    \boxed{u_C(f(x)) = \dfrac{u_C(x)}{K}}
-\end{equation}
 
 
 
