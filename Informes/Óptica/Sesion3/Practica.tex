@@ -162,7 +162,7 @@ Teniendo en cuenta que el aumento proporcionado por el fabricante es 4$\times$, 
 
 Ahora pasamos a la segunda parte de la práctica, en la que se nos pide medir los radios de los anillos de Newton. Para ello, utilizamos un microscopio para observar los anillos y medir sus radios correspondientes a diferentes órdenes.
 
-En la tabla \ref{tab:r1_r2} se muestran los valores medidos en el laboratorio de los radios de los anillos de Newton $r_1$ y $r_2$ correspondientes a los órdenes $k=1$ y $k=7$, respectivamente. Cada medida se realizó tres veces para obtener un valor más preciso, y la incertidumbre asociada a cada medida es de $u_C(r_1) = 0{,}02$\,mm y $u_C(r_2) = 0{,}02$\,mm.
+En la tabla (\ref{tab:r1_r2}) se muestran los valores medidos en el laboratorio de los radios de los anillos de Newton $r_1$ y $r_2$ correspondientes a los órdenes $k=1$ y $k=7$, respectivamente. Cada medida se realizó tres veces para obtener un valor más preciso, y la incertidumbre asociada a cada medida es de $u_C(r_1) = 0{,}02$\,mm y $u_C(r_2) = 0{,}02$\,mm.
 
 \begin{table}[H]
 \centering
@@ -187,12 +187,12 @@ Donde $r_{k1}$ y $r_{k2}$ son los radios medios de los anillos de Newton corresp
 
 Sustituyendo los valores obtenidos en la fórmula, calculamos $R$, obteniendo así el siguiente resultado, $R_1=3600\pm	100$ (mm).
 
-Tambien se nos pedia obtener el valor de $R$ mediante otro método,este era un ajuste por minimos cuadrados de los datos obtenidos. Para ello, representamos gráficamente $r^2$ frente a $k\lambda$ y realizamos un ajuste lineal de los datos. La pendiente de la recta ajustada nos permite calcular el radio de curvatura $R$ mediante la relación:
+Tambien se nos pedia obtener el valor de $R$ mediante otro método, este era un ajuste por minimos cuadrados de los datos obtenidos. Para ello, representamos gráficamente $r^2$ frente a $k\lambda$ y realizamos un ajuste lineal de los datos. La pendiente de la recta ajustada nos permite calcular el radio de curvatura $R$ mediante la relación:
 \begin{equation}
     R = \dfrac{1}{\text{pendiente}}
 \end{equation}
 
-Nosotros decidimos realizar 5 ordenes de anillos, desde el $k=1$ hasta el $k=5$ y tambien medimos los radios de los anillos correspondientes tres veces para obtener un valor más preciso, llegando así a los siguientes resultados:
+Nosotros decidimos realizar 5 ordenes de anillos, desde el $k=1$ hasta el $k=5$ y tambien medimos los radios de los anillos correspondientes tres veces para obtener un valor más preciso,los valores de CV en los 5 casos son inferiores al $2\%$, por lo que podríamos haber tomado alguna medida más para reducir la incertidumbre, pero de nuevo por falta de tiempo no pudimos, llegando así a los siguientes resultados:
 
 \begin{table}[H]
 \centering
@@ -221,9 +221,18 @@ Esto nos permite realizar el ajuste lineal de los datos, obteniendo la siguiente
 
 A partir del ajuste lineal, obtenemos la pendiente de la recta ajustada, que es $m = 0,00028745\pm 0,00000004$ (mm)$^{-1}$. Utilizando esta pendiente, calculamos el radio de curvatura $R$ mediante la relación mencionada anteriormente, obteniendo así el siguiente resultado, $R_2=3470\pm50$ (mm).
 
+Al no tener un valor de referencia para el radio de curvatura de la lente esférica, no podemos calcular un error relativo entre los dos métodos. Sin embargo, podemos observar que ambos valores obtenidos son bastante cercanos entre sí, lo que sugiere que ambos métodos son válidos y proporcionan resultados consistentes.
+
+Lo que si podemos hacer es una comparacion con la "t de student" para ver si los resultados son compatibles entre sí. Para ello, calculamos el valor de t como:
+\begin{equation}
+    t = \dfrac{|R_1 - R_2|}{\sqrt{u_C(R_1)^2 + u_C(R_2)^2}}
+\end{equation}
+Sustituyendo los valores obtenidos,tenemos el siguiente valor de $t \approx 1,16 $.
+Según la tabla de la t de Student, para un nivel de confianza del $95\%$ y $2$ grados de libertad, el valor crítico es aproximadamente $4,303$. Dado que nuestro valor calculado de $t$ es menor que el valor crítico, podemos concluir que los dos resultados son compatibles entre sí dentro del nivel de confianza del $95\%$.
+
 \section{Conclusiones}
 
-En esta práctica hemos aprendido a utilizar un microscopio compuesto para observar objetos pequeños y medir sus dimensiones con precisión. Hemos calibrado el microscopio para observar el micrómetro y hemos medido el tamaño de varias muestras, obteniendo resultados consistentes con las dimensiones conocidas de los objetos. Además, hemos estudiado los anillos de Newton formados por la interferencia de la luz reflejada entre una lente esférica y una superficie plana. Hemos medido los radios de los anillos correspondientes a diferentes órdenes y hemos calculado el radio de curvatura de la lente utilizando dos métodos distintos: mediante la fórmula directa y mediante un ajuste lineal de los datos obtenidos. Ambos métodos nos han proporcionado resultados semejantes, lo que confirma la validez de nuestras mediciones y cálculos.
+En esta práctica hemos aprendido a utilizar un microscopio compuesto para observar objetos pequeños y medir sus dimensiones con precisión. Hemos calibrado el microscopio para observar el micrómetro y hemos medido el tamaño de varias muestras, obteniendo resultados consistentes con las dimensiones conocidas de los objetos. Además, hemos estudiado los anillos de Newton formados por la interferencia de la luz reflejada entre una lente esférica y una superficie plana. Hemos medido los radios de los anillos correspondientes a diferentes órdenes y hemos calculado el radio de curvatura de la lente utilizando dos métodos distintos: mediante la fórmula directa y mediante un ajuste lineal de los datos obtenidos. Ambos métodos nos han proporcionado resultados semejantes, lo que confirma la validez de nuestras mediciones y cálculos, además se ha comprobado la compatibilidad entre ambos resultados utilizando la t de Student.
 
 
 \section{Agradecimientos}
@@ -237,8 +246,8 @@ los medios y el material necesarios para llevar a cabo esta práctica, así como
 \subsubsection{Sensibilidad de los instrumentos}
 En los cálculos se ha considerado la sensibilidad (resolución) de los instrumentos empleados:
 \begin{itemize}
-    \item Micrómetro para $s$ y $d'_{1,2}$: $\delta = 0{,}01$\,mm (incertidumbre tipo B asociada $u_B = \delta/\sqrt{12} \approx 0{,}003$\,mm).
-    \item Distancia focal $f'$ del sistema: se ha tratado como dato sin incertidumbre
+    \item Ocular micrométrico para $y'_1$ y $r_k$: $\delta = 0{,}02$\,mm.
+    \item Micrómetro para $y_1$: $\delta = 0{,}01$\,mm.
 \end{itemize}
 \subsubsection{Cálculo de la desviación estándar}
 La desviación estándar se utilizará para el cálculo de la incertidumbre tipo A; su expresión es:
@@ -277,6 +286,8 @@ de esta función se calcula mediante la propagación de incertidumbres, y obtene
 
 Donde $\dfrac{\partial f}{\partial x_i}$ es la derivada parcial de $f$ respecto a la variable $x_i$, y $u_C(x_i)$ es la incertidumbre combinada de la variable $x_i$.
 Este cálculo nos proporciona la incertidumbre de una función que depende de varias variables, teniendo en cuenta las incertidumbres individuales de cada variable.
+
+
 \subsection{Incertidumbre de $\beta$}
 Se obtuvo a partir de la incertidumbre de $y'_1$, ya que se tomó $y_1$ como valor exacto.
 La expresión es:
@@ -292,6 +303,8 @@ La incertidumbre de $R$ se calcula mediante la propagación de incertidumbres, c
 \begin{equation}
     \boxed{u_C(R) = \dfrac{1}{\lambda(k_1-k_2)}\sqrt{((2 r_{k1}- r_{k2}^2)u_C(r_{k1}))^2 + ((r_{k1}^2-2 r_{k2})u_C(r_{k2}))^2}}
 \end{equation}
+
+
 
 % Bibliografía
 
