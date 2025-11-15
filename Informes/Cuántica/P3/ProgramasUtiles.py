@@ -117,8 +117,8 @@ while opcion != '0':
         plt.plot(data.x, y_pred, 'g-', label='Ajuste',linewidth=4.0)
 
 
-        plt.xlabel(r'$\nu (Hz)$',fontsize=25)
-        plt.ylabel(r'$V_0 (V)$',fontsize=25)
+        plt.xlabel(r'$r_2$ $(m)$',fontsize=25)
+        plt.ylabel(r'$\lambda$ $(m)$',fontsize=25)
         plt.legend(loc='best',fontsize=25)
         plt.grid()
 
@@ -127,8 +127,8 @@ while opcion != '0':
             ax.spines[axis].set_linewidth(4)
 
         # Con estas líneas podemos dar formato a los "ticks" de los ejes:
-        plt.tick_params(axis="x", labelsize=25, labelrotation=0, labelcolor="black")
-        plt.tick_params(axis="y", labelsize=25, labelrotation=0, labelcolor="black")
+        plt.tick_params(axis="x", labelsize=15, labelrotation=0, labelcolor="black")
+        plt.tick_params(axis="y", labelsize=15, labelrotation=0, labelcolor="black")
 
         # Aquí dibuja el gráfico que hemos definido.
         plt.savefig(nombre_graf)
