@@ -215,7 +215,7 @@ Esto nos permite realizar el ajuste lineal de los datos, obteniendo la siguiente
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.7\textwidth]{AnillosNewton.png}
-    \caption{Ajuste lineal de los datos obtenidos en la práctica de los anillos de Newton. La pendiente de la recta ajustada nos permite calcular el radio de curvatura $R$ de la lente esférica.}
+    \caption{Ajuste lineal de los datos obtenidos en la práctica de los anillos de Newton. La pendiente de la recta ajustada nos permite calcular el radio de curvatura $R$ de la lente esférica. Este ajuste se ha realizado utilizando el método de mínimos cuadrados, teniendo en cuenta las incertidumbres asociadas a cada medida. Tiene un coeficiente de correlación $R^2 = 0,978$, lo que indica una excelente calidad del ajuste.}
     \label{fig:AnillosNewton}
 \end{figure}
 
@@ -304,7 +304,40 @@ La incertidumbre de $R$ se calcula mediante la propagación de incertidumbres, c
     \boxed{u_C(R) = \dfrac{1}{\lambda(k_1-k_2)}\sqrt{((2 r_{k1}- r_{k2}^2)u_C(r_{k1}))^2 + ((r_{k1}^2-2 r_{k2})u_C(r_{k2}))^2}}
 \end{equation}
 
+\subsection{Datos sin tratar}
 
+\subsubsection{Medidas de $r_1$ y $r_2$}
+Aquí expondremos los valores sin tratar obtenidos en el laboratorio para los radios de los anillos de Newton $r_1$ y $r_2$ correspondientes a los órdenes $k=1$ y $k=7$, respectivamente.
+
+En la tabla (\ref{tab:r1_K1_1}) se muestran los valores medidos para $r_1$, y en la tabla (\ref{tab:r2_K2_7}) los valores medidos para $r_2$ con. Cada medida se realizó tres veces para obtener un valor más preciso. 
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[rgb]{ .651,  .788,  .925}
+\textbf{Posición} & \textbf{Vueltas} & \textbf{Posición final} \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 27 & 2 & 59,5 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 27 & 2 & 61 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 26 & 2 & 63,5 \\ \hline
+\end{tabular}
+\caption{Medidas para \(r_1\) con \(K_1 = 1\): posición inicial, número de vueltas y posición final.}
+\label{tab:r1_K1_1}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+\rowcolor[rgb]{ .651,  .788,  .925}
+\textbf{Posición} & \textbf{Vueltas} & \textbf{Posición final} \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 26 & 7 & 99 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 28 & 7 & 94 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816} 25,5 & 7 & 7 \\ \hline
+\end{tabular}
+\caption{Medidas para \(r_2\) con \(K_2 = 7\): posición inicial, número de vueltas y posición final.}
+\label{tab:r2_K2_7}
+\end{table}
 
 % Bibliografía
 
