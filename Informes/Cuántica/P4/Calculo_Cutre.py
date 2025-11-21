@@ -37,7 +37,7 @@ def extraer_rutas(ruta_carpeta):
         if nombre_archivo.endswith('.txt'):
             rutas_archivos.append(os.path.join(ruta_carpeta, nombre_archivo))
     return rutas_archivos
-ruta = "Datos/Medidas_B_5/"
+ruta = "Datos/Medidas_B_1/"
 rutas_archivos = extraer_rutas(ruta)
 datos, valores_constantes = leer_datos(rutas_archivos)
 fig=plt.figure(figsize=[18,12])
@@ -45,7 +45,20 @@ ax=fig.gca()
 for i in datos:
     eje_x = [fila[0] for fila in i]
     eje_y = [fila[1] for fila in i]
-    plt.plot(eje_x, eje_y, linewidth=2,label=f'Datos {datos.index(i)+1}')
+    fig=plt.figure(figsize=[18,12])
+    ax=fig.gca()
+    plt.plot(eje_x, eje_y, linewidth=2,label=fr'Datos para $U_2$= {valores_constantes[datos.index(i)][0][0]}, $U_3$= {valores_constantes[datos.index(i)][0][1]} y $U_H$= {valores_constantes[datos.index(i)][0][2]}')
+    plt.ylabel(r'$I\ nA$',fontsize=25)
+    plt.xlabel(r'$V_1\ V$',fontsize=25)
+    plt.legend(loc='best',fontsize=25)
+    plt.grid()
+    for axis in ['top','bottom','left','right']:
+        ax.spines[axis].set_linewidth(4)
+
+        # Con estas líneas podemos dar formato a los "ticks" de los ejes:
+    plt.tick_params(axis="x", labelsize=25, labelrotation=0, labelcolor="black")
+    plt.tick_params(axis="y", labelsize=25, labelrotation=0, labelcolor="black")
+        # Aquí dibuja el gráfico que hemos definido
     plt.show()
 
 
