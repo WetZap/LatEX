@@ -1,4 +1,3 @@
-import numpy as np
 import matplotlib.pyplot as plt
 
 
@@ -28,8 +27,7 @@ def leer_datos(rutas_archivos):
 
 def extraer_rutas(ruta_carpeta):
 
-    """Extrae las rutas de los archivos de datos en una carpeta dada.
-    """
+    # Extrae las rutas de los archivos de datos en una carpeta dada.
     import os
 
     rutas_archivos = []
