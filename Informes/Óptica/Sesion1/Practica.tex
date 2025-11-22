@@ -175,7 +175,7 @@ Para la banda azul:
 \caption{Valores obtenidos en el espectrogoniómetro para la lámpara de helio. Esta nos proporcionaba la banda azul.}\label{tab:banda_azul}
 \end{table}
 
-A continuación, empleamos la expresión proporcionada por el informe \cite{InfoOpticaPrisma}, $\delta = |L - L_0|$, para calcular el ángulo de desviación mínima para cada longitud de onda,esta angulo lo usaremos más adelante para obtener los valores requeridos.Exponemos los resultados:\footnote{Los valores del amarillo pasarán a llamarse $D$, los del rojo $C$ y los del azul $F$.}
+A continuación, empleamos la expresión proporcionada por el informe \cite{InfoOpticaPrisma}, $\delta = |L - L_0|$, para calcular el ángulo de desviación mínima para cada longitud de onda, este ángulo lo usaremos más adelante para obtener los valores requeridos. Exponemos los resultados:\footnote{Los valores del amarillo pasarán a llamarse $D$, los del rojo $C$ y los del azul $F$.}
 \begin{table}[H]
 \centering
 \begin{tabular}{|r|r|r|}
@@ -208,7 +208,7 @@ Pero estas medidas están en grados, por lo tanto hay que pasarlas a radianes pa
 
 \subsection{Determinación del indice de refracción, número de Abbe y poder Dispersivo}
 
-Con los datos del apartado anterior,  sabiendo que el ángulo de refringencia del prisma tratado es de 60º sin incertidumbre podemos calcular el índice de refracción del prisma para cada longitud de onda. Para elloutilizamos la siguiente expresión: 
+Con los datos del apartado anterior,  sabiendo que el ángulo de refringencia del prisma tratado es de 60º sin incertidumbre podemos calcular el índice de refracción del prisma para cada longitud de onda. Para ello utilizamos la siguiente expresión: 
 \[
 n = \frac{\sen\left( \frac{\delta_m + \alpha}{2} \right)}{\sen\left( \frac{\alpha}{2} \right)}
 \]
@@ -220,12 +220,13 @@ La siguiente tabla expone los valores obtenidos del indice de refracción para c
 \hline
 \rowcolor[rgb]{ .651,  .788,  .925}
 \multicolumn{1}{|l|}{$n_f$} & \multicolumn{1}{l|}{$u_C(n_f)$} & \multicolumn{1}{l|}{$n_c$} & \multicolumn{1}{l|}{$u_C(n_c)$} & \multicolumn{1}{l|}{$n_d$} & \multicolumn{1}{l|}{$u_C(n_d)$} \\ \hline
-\rowcolor[rgb]{.816,  .816,  .816}1,540285 & 0,000076 & 1,531341 & 0,000076 & 1,529281 & 0,000077 \\ \hline
-\rowcolor[rgb]{.816,  .816,  .816}1,548785 & 0,000075 & 1,538427 & 0,000076 & 1,538056 & 0,000076 \\ \hline
-\rowcolor[rgb]{.816,  .816,  .816}1,543619 & 0,000076 & 1,531528 & 0,000076 & 1,531154 & 0,000076 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816}1,54029 & 0,00008 & 1,53134 & 0,00008 & 1,52928 & 0,00008 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816}1,54879 & 0,00008 & 1,53843 & 0,00008 & 1,53806 & 0,00008 \\ \hline
+\rowcolor[rgb]{.816,  .816,  .816}1,54362 & 0,00008 & 1,53153 & 0,00008 & 1,53115 & 0,00008 \\ \hline
 \end{tabular}
 \caption{Valores obtenidos del índice de refracción para cada longitud de onda.}\label{tab:indice_refraccion}
 \end{table}
+De nuevo, la relación de tamaños entre ellos es la esperada, $n_f$ mayor que $n_c$ mayor que $n_d$, lo que apunta a que el desarrollo está siendo correcto. Además, el valor se encuentra en consonancia con el índice de refracción del vidrio, en torno a 1,5.
 
 Tras obtener estos valores podemos calcular el número de Abbe del prisma, usando la expresión proporcionada en el informe~\cite{InfoOpticaPrisma}:
  \[
@@ -301,39 +302,15 @@ La incertidumbre tipo B se debe al error que ocasiona el medir con instrumentos 
     u_B = \dfrac{\delta}{\sqrt{12}}
 \end{equation}
 
+En este caso este error se debe al uso del nonius, cuya precisión es de $\delta_x=0,0167$ unidades. 
+
 \subsubsection{Incertidumbre Combinada}
 Tras obtener la incertidumbre tipo A y tipo B debemos juntarlas para dar un valor de incertidumbre concreto, se calcularía de la siguiente forma:
 \begin{equation}
     u_C = \sqrt{(u_A)^2\ +\ (u_B)^2}
 \end{equation}
 
-\subsubsection{Incertidumbre debida a medida indirecta}
-Debido a la que usaremos este tipo de incertidumbre en varias ocasiones, la dejaremos aquí definida para evitar 
-tener que repetir el proceso cada vez. Sea $f(x_1,x_2,\ldots,x_n)$ una funcion con $n$ variables, la incertidumbre
-de esta función se calcularía mediante la propagación de incertidumbres, y obtendríamos la siguiente ecuación:
 
-\begin{equation}
-    \boxed{u_C(f(x_1,x_2,\ldots,x_n)) = \sqrt{\sum_{i=1}^{n} \left(\dfrac{\partial f}{\partial x_i}\right)^2\ u_C(x_i)^2}}
-\end{equation}
-
-Donde $\dfrac{\partial f}{\partial x_i}$ es la derivada parcial de $f$ respecto a la variable $x_i$, y $u_C(x_i)$ es la incertidumbre combinada de la variable $x_i$.
-Este cálculo nos proporciona la incertidumbre de una función que depende de varias variables, teniendo en cuenta las incertidumbres individuales de cada variable.
-\subsubsection{Incertidumbre por cambio de unidades}
-Esta incertidumbre la usaremos cuando un valor se encuentre en unas unidades distintas a las del SI, 
-se llevará a cabo mediante la propagación de incertidumbres, suponiendo  la siguiente ecuación: 
-$f(x) = \dfrac{x}{K}$ siendo $k$ un valor cualquiera real, entonces, $u_C(f(x)) = \sqrt{(\dfrac{\partial f(x)}{\partial x})^2\ u_C(x)^2}$ 
-y como $\dfrac{\partial f(x)}{\partial x} = \dfrac{1}{K}$, finalmente obtenemos:
-
-\begin{equation}
-    \boxed{u_C(f(x)) = \dfrac{u_C(x)}{K}}
-\end{equation}
-
-\subsubsection{Incertidumbre de la suma}
-Supongamos que tenemos la ecuación $f(x)=x_1+x_2$, la incertidumbre de esta suma se calcularía con la propagación de incertidumbre, y obtendríamos la siguiente ecuación:
-
-\begin{equation}
-    \boxed{u_C(f(x))=\sqrt{u_C(x_1)^2+u_C(x_2)^2}}
-\end{equation}
 
 \subsubsection{Incertidumbre de la inversa}
 Sea $f(x) = \dfrac{1}{x}$, haciendo el proceso de propagación de incertidumbres obtenemos su incertidumbre como:
