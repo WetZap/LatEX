@@ -1,0 +1,695 @@
+\documentclass[10pt,onecolumn]{article}
+
+
+%Aquí vienen todos los paquetes que se van a usar
+
+\usepackage[spanish]{babel}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{booktabs}
+
+\usepackage[bottom]{footmisc}
+\usepackage{comment}
+\usepackage{subcaption} % Añade esto en el preámbulo si no lo tienes
+\usepackage{colortbl} %Permite agregar color a las celdas de las tablas.
+\usepackage{mathtools} %Contiene herramientas adicionales para componer fórmulas matemáticas en LaTeX.
+\usepackage{algorithm2e} %Facilita la sintaxis de los algoritmos.
+%\usepackage[T1]{fontenc} %Hace posible escribir en diferentes idiomas.
+\usepackage{lmodern} %Carga la fuente Latin modern en el documento.
+\usepackage{float} %Hace posible el uso de [H] en las tablas y gráficas.
+\usepackage{blindtext} %Ncesario para usar este tipo de comentarios.
+\usepackage{multicol} %Posibilidad (no mostrada aquí) de escribir en varias columnas para una misma página.
+\usepackage{wrapfig} %Permite que las figuras y tablas se ajusten mejor al texto.
+\usepackage{breqn} %Ajusta ecuaciones largas al ancho de la página, teniendo que romper y bajar a una fila más abajo parte de la ecuación para que quepa dentro de los márgenes.
+\usepackage{array} %Permite personalizar más ampliamente las columnas de las tablas de LaTeX.
+\usepackage{eurosym} %Posibilidad de usar el símbolo € en el texto.
+\usepackage{amsmath} %Mejoras para la escritura de ecuaciones matemáticas.
+\usepackage{mathrsfs} %Prporciona el alfabeto de letras minúsculas de Ralph Smith.
+\usepackage{indentfirst} %Encaja el primer párrafo de un encabezado del documento, si por ejemplo el primer párrafo queremos que esté sangrado.
+\usepackage{amsthm} %Facilita la escritura de demostraciones de afirmaciones matemáticas de toda clase.
+\usepackage[font=small,labelfont=bf]{caption} %Formatea los títulos de figuras y gráficas.
+\usepackage{graphicx} %Facilita la inclusión de imágenes en LaTeX.
+\usepackage[titles]{tocloft} %Posibilidad de personalizar el formato del Índice.
+\usepackage[hidelinks]{hyperref} %Crea hipervínculos en el PDF generado del documento de texto final, para poder navegar a través y externamente al documento.
+\setlength{\parindent}{12pt} %Establece la sangría de la primera línea de cada párrafo a {...pt}.
+\usepackage{multirow} %Posibilidad de combinar filas de las tablas de LaTeX.
+\usepackage{parskip} %Modifica los espacios entre párrafos para que no haya sangría, sino que se genere un espacio entre medias predeterminado. 
+\usepackage{fancyhdr} %Creación de encabezados y pies de página.
+\usepackage[utf8]{inputenc} %Permite usar caracteres especiales y letras acentuadas directamente en el código LaTeX.
+\usepackage{bm} %Posibilidad de escribir símbolos en negrita en lenguaje matemático. 
+\usepackage{url} %Inclusión de direcciones URL en el documento.
+\usepackage{siunitx} %Permite la escritura de cantidades físicas y unidades en el documento.
+% Configuración para coma decimal y redondeo a 4 decimales en tablas
+    \sisetup{output-decimal-marker = {,}, input-decimal-markers = {,}}
+\captionsetup[table]{skip=10pt} %Configuración del espacio entre la tabla y la leyenda de la tabla del documento.
+\usepackage{geometry} %Posibilidad de personalizar las dimensiones del documento.
+
+
+
+%Aquí se definen cosas de colores y movidas fancys
+\usepackage[dvipsnames]{xcolor}
+\definecolor{nube}{RGB}{188,108,37}
+\definecolor{salmon}{RGB}{248, 131, 121}
+
+%Aquí tenemos un poco el formateo de la página
+\pagestyle{fancy}
+\fancyhf{}
+\cfoot{}
+\rhead{\thepage}
+ \lhead{P4: Experiencia de Franck y Hertz}
+
+
+\begin{document}
+\renewcommand{\headrulewidth}{0.5pt}
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\renewcommand{\refname}{Bibliography}
+\renewcommand{\tablename}{Table}
+\renewcommand{\contentsname}{Index}
+\renewcommand{\figurename}{Fig.}
+\captionsetup{labelfont={color=nube}}
+\addtocontents{toc}{\hspace{-7.5mm} \textbf{Chapters}}
+\addtocontents{toc}{\hfill \textbf{Page} \par}
+\addtocontents{toc}{\vspace{-2mm} \hspace{-7.5mm} \hrule \par}
+
+\onecolumn
+\begin{titlepage}
+\centering
+    {\HRule{2 pt}} \\
+    \vspace{0.5cm}
+    {\scshape\Huge {\textbf{P4: Experiencia de Franck y Hertz}  }}  \\
+    %AQUI SE PONE EL TITULO
+    \vspace{1 mm}
+    
+    {\HRule{2 pt}}
+
+    \vspace{1cm}
+    \Large 17/11/2025 \\
+    \vspace{1cm}
+ 
+    \normalfont\Large Universidad de Granada, Facultad de Ciencias \\
+    \vspace{0.5cm}
+    
+    
+     \normalfont\Large Grado en Físicas \\
+    \vspace{0.5cm}
+     \normalfont Física Cuántica \\
+    \vspace{1.5cm}
+
+\centering
+    {\includegraphics[width=0.5\textwidth]{UGR-MARCA-01-color.jpg}\par}
+
+\vfill
+    \vspace{1cm}
+    \scshape\Large Jorge del Rio López\\
+    Jesus Vicente Martínez Oller\\
+    
+    \vspace{0.5cm}
+    \scshape\Large 
+
+\vfill
+
+\end{titlepage}
+
+\selectlanguage{Spanish}
+
+\tableofcontents %único comando para manejar TODO el índice.
+\newpage
+
+\HRule{0.5pt} %Controla los márgenes horizontales visibles (líneas) y el grosor de la línea (...pt).
+
+\begin{abstract}
+Se estudiará y pondrá a prueba el experimento de Franck–Hertz utilizando un tubo de Neón con el objetivo de observar la aparición de máximos y mínimos en la corriente de ánodo al variar el voltaje acelerador. Este comportamiento permite verificar la existencia de niveles de energía discretos en el átomo y, en particular, estimar el voltaje asociado al primer estado excitado del Neón. A partir de las gráficas obtenidas y del análisis de la separación entre máximos y mínimos consecutivos, contrastamos los resultados experimentales con los valores teóricos conocidos.
+
+\end{abstract}
+
+
+
+\section{Instrumentación}
+Para la realización de la práctica empleamos el \textbf{tubo de Franck–Hertz con gas Neón}, cuyo diseño permite estudiar la excitación inelástica de átomos por colisiones electrón–átomo. El montaje incluye:
+
+\begin{itemize}
+    \item \textbf{Tubo Franck–Hertz con Ne}: contiene un cátodo termoiónico, una rejilla de aceleración y un ánodo colector.
+    \item \textbf{Unidad de control}: permite regular los potenciales $U_H$ (filamento), $U_3$ (control de flujo electrónico), $U_2$ (potencial de frenado) y el voltaje acelerador $V_1$.
+    \item \textbf{Ordenador con software MEASURE}: utilizado para programar barridos de voltaje y registrar automáticamente la intensidad de corriente.
+    \item \textbf{Cables y fuente de alimentación} para establecer las conexiones entre el tubo y la unidad de control.
+\end{itemize}
+
+El Neón se encuentra en estado gaseoso a temperatura ambiente, por lo que no se requiere horno como en el caso del mercurio. El equipo permite medir intensidades de corriente en el rango de nanoamperios, motivo por el cual es esencial ajustar adecuadamente el potencial de frenado para obtener curvas con máximos y mínimos bien definidos.
+
+\normalsize
+\section{Metodología}
+ 
+ En primer lugar, se ajustó la tensión del filamento $U_H$ para garantizar una emisión estable de electrones y se fijó el potencial $U_3$ en torno a 6 V, valor óptimo para regular el flujo electrónico en el tubo. A continuación, se seleccionaron distintos valores del potencial de frenado $U_2$ entre 1 y 8 V, estudiando cómo afecta al número y forma de los máximos observados.
+
+Para cada configuración, se efectuó un barrido automático del voltaje acelerador $V_1$, registrándose la corriente de ánodo en función de este. Con los datos obtenidos se representaron gráficas $I(V_1)$ que permiten identificar los máximos y mínimos consecutivos asociados a colisiones inelásticas entre electrones y átomos de Ne. De forma sistemática, se recogieron los valores de dichos extremos y se calcularon las diferencias $\Delta V$ entre máximos y mínimos de igual orden. Estas diferencias se compararon con el valor teórico esperado para el primer nivel excitado del Neón, aproximadamente $E \approx 16.6\ \mathrm{eV}$.
+
+Este procedimiento se repitió en varias condiciones experimentales para evaluar la reproducibilidad y observar cómo la modificación de $U_2$, $U_3$ y $U_H$ afecta a la morfología de las curvas.
+
+
+
+\normalsize
+
+\section{Resultados y Discusiones} 
+En esta sesión solo disponíamos del Tubo de Franck–Hertz con Neón debido a que el Tubo con Hg se encontraba en mal estado y no podíamos usarlo, todo esto indicado por la profesora de prácticas presente.
+
+A continuación comenzaremos a exponer las gráficas obtenidas para los distintos valores de voltaje.
+
+En las tres primeras experiencias somo capaces de encontrar máximos y mínimos bien definidos mientras que en la cuarta experiencia mostraremos distintos experiencias que realizamos variando los valores de V alejándonos de los valores correctos para observar el comportamiento que tenía en ese caso el Neón
+
+\subsection{1º Experiencia}
+Para está experiencia lo que hicimos fue realizar una toma de datos variando el valor de $U_2$, desde $1$ hasta $8$ para poder visualizar los valores a los que la gráfica comienza a no seguir el modelo predicho.
+
+Realizamos una gráfica\footnote{Las gráficas de las medidas individuales se encuentran en el anexo} entre todas las medidas y llegamos a la gráfica mostrada en (\ref{fig:Medidas0}):
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas1.png}}
+    \caption{Representación gráfica de los todos valores tomados. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas0}
+\end{figure}
+
+A partir de la gráfica anterior somo capaces de determinar a partir de que valor de $U_2$ el comportamiento ya no es como el esperado, decidimos que este valor sea el de datos 5. Las medidas de los máximos y mínimos se paran al llegar a esta fase.
+
+A continuacioón expondremos los valores de los máximos y mínimos recogidos, estos datos se encuentran en la tabla (\ref{tab:maximos_minimos1}):
+\begin{table}[H]
+\centering
+\begingroup\sisetup{round-mode=places,round-precision=4}
+\begin{tabular}{|l|S|S|S|S|}
+\hline
+\rowcolor[rgb]{ .651,  .788,  .925}
+U$_2$ V, U$_3$ V, U$_{\text{H}}$ V &
+\multicolumn{2}{c|}{Máximos} &
+\multicolumn{2}{c|}{Mínimos} \\ \hline
+\rowcolor[rgb]{ .651,  .788,  .925}
+ & \multicolumn{1}{c|}{$x\pm 0,0029$ V} &
+     \multicolumn{1}{c|}{$y\pm 0,0029$ nA} &
+     \multicolumn{1}{c|}{$x\pm 0,0029$ V} &
+     \multicolumn{1}{c|}{$y\pm 0,0029$ nA} \\ \hline
+
+% ---- Bloque U2 = 1,0 ; U3 = 5,9 ; UHV = 5,0 ----
+\rowcolor[rgb]{ .816,  .816,  .816}
+1,0 \; 5,9 \; 5,0 & 29,58 &  8,83 & 30,58 &  8,01 \\ \hline
+\rowcolor[rgb]{ .816,  .816,  .816}
+1,0 \; 5,9 \; 5,0 & 46,52 & 23,23 & 47,41 & 22,82 \\ \hline
+\bottomrule
+% ---- Bloque U2 = 2,0 ; U3 = 5,9 ; UHV = 5,0 ----
+\rowcolor[rgb]{ .816,  .816,  .816}
+2,0 \; 5,9 \; 5,0 & 29,69 &  6,80 & 32,30 &  4,77 \\ \hline
+\rowcolor[rgb]{ .816,  .816,  .816}
+2,0 \; 5,9 \; 5,0 & 46,63 & 17,95 & 50,42 & 15,62 \\ \hline
+\rowcolor[rgb]{ .816,  .816,  .816}
+2,0 \; 5,9 \; 5,0 & 65,70 & 39,15 & % x_min_3
+% y_min_3
+&  \\ \hline
+\bottomrule
+% ---- Bloque U2 = 3,0 ; U3 = 5,9 ; UHV = 5,0 ----
+\rowcolor[rgb]{ .816,  .816,  .816}
+3,0 \; 5,9 \; 5,0 & 29,80 &  5,56 & 32,59 &  2,74 \\ \hline
+\rowcolor[rgb]{ .816,  .816,  .816}
+3,0 \; 5,9 \; 5,0 & 46,64 & 14,61 & 51,32 & 10,35 \\ \hline
+\rowcolor[rgb]{ .816,  .816,  .816}
+3,0 \; 5,9 \; 5,0 & 64,70 & 29,21 & 69,49 & 27,89 \\ \hline
+\bottomrule
+% ---- Bloque U2 = 4,0 ; U3 = 5,9 ; UHV = 5,0 ----
+\rowcolor[rgb]{ .816,  .816,  .816}
+4,0 \; 5,9 \; 5,0 & 29,80 &  4,77 & 33,70 &  0,71 \\ \hline
+\rowcolor[rgb]{ .816,  .816,  .816}
+4,0 \; 5,9 \; 5,0 & 46,52 & 11,87 & 52,54 &  5,58 \\ \hline
+\rowcolor[rgb]{ .816,  .816,  .816}
+4,0 \; 5,9 \; 5,0 & 64,58 & 22,01 & 71,50 & 18,26 \\ \hline
+\bottomrule
+% ---- Bloque U2 = 5,0 ; U3 = 5,9 ; UHV = 5,0 ----
+\rowcolor[rgb]{ .816,  .816,  .816}
+5,0 \; 5,9 \; 5,0 & 29,80 &  4,06 & 34,26 &  0,00 \\ \hline
+\rowcolor[rgb]{ .816,  .816,  .816}
+5,0 \; 5,9 \; 5,0 & 46,52 &  9,94 & 53,21 &  2,13 \\ \hline
+\rowcolor[rgb]{ .816,  .816,  .816}
+5,0 \; 5,9 \; 5,0 & 64,58 &  16,41 & 72,72 &  10,14 \\ \hline
+
+\end{tabular}
+\caption{Valores de los máximos y los mínimos para distintos valores de voltaje; las columnas numéricas se muestran con 4 decimales acorde a $\pm 0{,}0029$.}
+\label{tab:maximos_minimos1}
+\endgroup
+\end{table}
+
+A partir de estos valores podemos encontrar la diferencia entre los máximos y los mínimos simplemente restando los dos valores; obteniendo así la siguiente gráfica (\ref{tab:deltas_maximos_minimos1}):
+
+\begin{table}[H]
+\centering
+\begingroup\sisetup{round-mode=places,round-precision=4}
+\begin{tabular}{|l|S|S|S|S|}
+\hline
+\rowcolor[rgb]{.651,.788,.925}
+U$_2$ V, U$_3$ V, U$_{\text{H}}$ V &
+\multicolumn{2}{c|}{Máximos} &
+\multicolumn{2}{c|}{Mínimos} \\ \hline
+\rowcolor[rgb]{.651,.788,.925}
+ & $\Delta x\pm0,0029$ V & $\Delta y\pm0,0029$ nA &
+     $\Delta x\pm0,0029$ V & $\Delta y\pm0,0029$ nA \\ \hline
+
+% ---- U2 = 1,0 ; U3 = 5,9 ; UH = 5,0 ----
+\rowcolor[rgb]{.816,.816,.816}
+1{,}0;\;5{,}9;\;5{,}0 &
+16{,}94 & 14{,}40 & 16{,}83 & 14{,}81 \\ \hline
+\bottomrule
+% ---- U2 = 2,0 ; U3 = 5,9 ; UH = 5,0 ----
+\rowcolor[rgb]{.816,.816,.816}
+2{,}0;\;5{,}9;\;5{,}0 &
+16{,}94 & 11{,}15 & 18{,}12 & 10{,}85 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+2{,}0;\;5{,}9;\;5{,}0 &
+19{,}07 & 21{,}20 &  &  \\ \hline
+\bottomrule
+
+% ---- U2 = 3,0 ; U3 = 5,9 ; UH = 5,0 ----
+\rowcolor[rgb]{.816,.816,.816}
+3{,}0;\;5{,}9;\;5{,}0 &
+16{,}84 & 9{,}05 & 18{,}73 & 7{,}61 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+3{,}0;\;5{,}9;\;5{,}0 &
+18{,}06 & 14{,}60 & 18{,}17 & 17{,}54 \\ \hline
+\bottomrule
+
+% ---- U2 = 4,0 ; U3 = 5,9 ; UH = 5,0 ----
+\rowcolor[rgb]{.816,.816,.816}
+4{,}0;\;5{,}9;\;5{,}0 &
+16{,}72 & 7{,}10 & 18{,}84 & 4{,}87 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+4{,}0;\;5{,}9;\;5{,}0 &
+18{,}06 & 10{,}14 & 18{,}96 & 12{,}68 \\ \hline
+\bottomrule
+
+% ---- U2 = 5,0 ; U3 = 5,9 ; UH = 5,0 ----
+\rowcolor[rgb]{.816,.816,.816}
+5{,}0;\;5{,}9;\;5{,}0 &
+16{,}72 & 5{,}88 & 18{,}95 & 2{,}13 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+5{,}0;\;5{,}9;\;5{,}0 &
+18{,}06 & 6{,}47 & 19{,}51 & 8{,}01 \\ \hline
+
+\end{tabular}
+\caption{Valores del $\Delta$ de dos máximos o mínimos consecutivos (Medidas 1). Columnas numéricas en 4 decimales acorde a $\pm 0{,}0029$.}
+\label{tab:deltas_maximos_minimos1}
+\endgroup
+\end{table}
+
+
+
+\subsection{2º Experiencia}
+Para esta experiencia, variamos $U_2$ de igual forma que en la primera experiencia pero en vez de realizar 8 fases, realizamos tres, sin embargo seguimos variando $U_2$ entre 1 y 7 V.
+
+Los datos representados se representan en la gráfica (\ref{fig:Medidas5}):
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas5.png}}
+    \caption{Representación gráfica de los todos valores tomados. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas5}
+\end{figure}
+
+Para la gráfica anterior se obtienen los siguientes valores, en la tabla (\ref{tab:maximos_minimos_medidas5}) de máximos y mínimos, con sus respectivas incertidumbres y a los voltajes a los que se realizaron: 
+\begin{table}[H]
+\centering
+\begingroup\sisetup{round-mode=places,round-precision=4}
+\begin{tabular}{|l|S|S|S|S|}
+\hline
+\rowcolor[rgb]{.651,.788,.925}
+U$_2$ V, U$_3$ V, U$_{\text{H}}$ V &
+\multicolumn{2}{c|}{Máximos} &
+\multicolumn{2}{c|}{Mínimos} \\ \hline
+\rowcolor[rgb]{.651,.788,.925}
+ & $x\pm 0,0029$ V& $y\pm 0,0029$ nA & $x\pm 0,0029$ V & $y\pm 0,0029$ nA \\ \hline
+
+% ---- U2 = 3,0 ; U3 = 5,8 ; UH = 5,5 ----
+\rowcolor[rgb]{.816,.816,.816}
+3{,}0;\;5{,}8;\;5{,}5 &
+30{,}10 & 4{,}61 & 32{,}8 & 2{,}18 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+3{,}0;\;5{,}8;\;5{,}5 &
+47{,}40 & 15{,}05 & 51{,}70 & 10{,}99 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+3{,}0;\;5{,}8;\;5{,}5 &
+66{,}10 & 37{,}13 & 68{,}5 & 37{,}03 \\ \hline
+\bottomrule
+% ---- U2 = 5,0 ; U3 = 5,8 ; UH = 5,5 ----
+\rowcolor[rgb]{.816,.816,.816}
+5{,}0;\;5{,}8;\;5{,}5 &
+13{,}60 & 2{,}54 & 17{,}30 & 0{,}00 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+5{,}0;\;5{,}8;\;5{,}5 &
+28{,}90 & 10{,}75 & 34{,}60 & 0{,}10 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+5{,}0;\;5{,}8;\;5{,}5 &
+47{,}00 & 28{,}60 & 53{,}20 & 10{,}65 \\ \hline
+\bottomrule
+
+% ---- U2 = 7,0 ; U3 = 5,8 ; UH = 5,5 ----
+\rowcolor[rgb]{.816,.816,.816}
+7{,}0;\;5{,}8;\;5{,}5 &
+13{,}20 & 2{,}44 & 18{,}20 & 0{,}00 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+7{,}0;\;5{,}8;\;5{,}5 &
+29{,}00 & 9{,}54 & 35{,}90 & 0{,}00 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+7{,}0;\;5{,}8;\;5{,}5 &
+46{,}70 & 22{,}11 & 54{,}80 & 0{,}00 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+7{,}0;\;5{,}8;\;5{,}5 &
+66{,}10 & 35{,}60 & 72{,}60 & 25{,}97 \\ \hline
+
+\end{tabular}
+\caption{Máximos y mínimos medidos para distintas combinaciones de $U_2$, $U_3$ y $U_H$ (Medidas 5).}
+\label{tab:maximos_minimos_medidas5}
+\end{table}
+
+Una vez que obtenemos los maximos y los minimos podemos llegar a obtener la diferencia entre máximos y minimos consecutivos, simplemente restando los dos resultados. Los valores obtenidos se presentan en la tabla (\ref{tab:deltas_medidas5})
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|r|r|r|r|}
+\hline
+\rowcolor[rgb]{.651,.788,.925}
+U$_2$ V, U$_3$ V, U$_{\text{H}}$ V &
+\multicolumn{2}{c|}{Máximos} &
+\multicolumn{2}{c|}{Mínimos} \\ \hline
+\rowcolor[rgb]{.651,.788,.925}
+ & $\Delta x \pm 0,0029$ V& $\Delta y\pm 0,0029$ nA &
+     $\Delta x\pm0,0029$ V & $\Delta y\pm 0,0029$ nA \\ \hline
+
+% ---- U2 = 3,0 ; U3 = 5,8 ; UH = 5,5 ----
+\rowcolor[rgb]{.816,.816,.816}
+3{,}0;\;5{,}8;\;5{,}5 &
+17{,}30 & 10{,}44 & 18{,}90 & 8{,}81 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+3{,}0;\;5{,}8;\;5{,}5 &
+18{,}70 & 22{,}08 & 16{,}80 & 26{,}04 \\ \hline
+\bottomrule
+% ---- U2 = 5,0 ; U3 = 5,8 ; UH = 5,5 ----
+\rowcolor[rgb]{.816,.816,.816}
+5{,}0;\;5{,}8;\;5{,}5 &
+15{,}30 & 8{,}21 & 17{,}30 & 0{,}10 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+5{,}0;\;5{,}8;\;5{,}5 &
+18{,}10 & 17{,}85 & 18{,}60 & 10{,}55 \\ \hline
+\bottomrule
+
+% ---- U2 = 7,0 ; U3 = 5,8 ; UH = 5,5 ----
+\rowcolor[rgb]{.816,.816,.816}
+7{,}0;\;5{,}8;\;5{,}5 &
+15{,}80 & 7{,}10 & 17{,}70& 0{,}00 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+7{,}0;\;5{,}8;\;5{,}5 &
+17{,}70 & 12{,}57 & 18{,}90 & 0{,}00 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+7{,}0;\;5{,}8;\;5{,}5 &
+19{,}40 & 13{,}49 & 17{,}80 & 25{,}97 \\ \hline
+\bottomrule
+
+\end{tabular}
+\caption{Valores del $\Delta$ de dos máximos o mínimos consecutivos (Medidas 5). Columnas numéricas en 4 decimales acorde a $\pm 0{,}0029$.}
+\label{tab:deltas_medidas5}
+\endgroup
+\end{table}
+
+
+\subsection{3º Experiencia}
+Para esta experiencia, variamos $U_2$ de igual forma que en la segunda experiencia. Repitiendo igualmente el valor de $U_2$
+
+La gráfica que obtuvimos se presenta en (\ref{fig:Medidas6}):
+
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas6.png}}
+    \caption{Representación gráfica de los todos valores tomados. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas6}
+\end{figure}
+
+
+Al igual que en las anteriores experiencias podemos obtener los valores de los máximos y mínimos así como la diferencia entre maximos de igual orden, las tablas se localizan en las (\ref{tab:maximos_minimos_medidas6_xy}) y (\ref{tab:deltas_medidas6}) respectivamente:
+\begin{table}[H]
+\centering
+\begingroup\sisetup{round-mode=places,round-precision=4}
+\begin{tabular}{|l|S|S|S|S|}
+\hline
+\rowcolor[rgb]{.651,.788,.925}
+U$_2$ V, U$_3$ V, U$_{\text{H}}$ V &
+\multicolumn{2}{c|}{Máximos} &
+\multicolumn{2}{c|}{Mínimos} \\ \hline
+\rowcolor[rgb]{.651,.788,.925}
+ & $x\pm 0,0029$ V& $y\pm 0,0029$ nA & $x\pm 0,0029$ V & $y\pm 0,0029$ nA \\ \hline
+
+% ---- U2 = 3,0 ; U3 = 5,8 ; UH = 4,5 ----
+\rowcolor[rgb]{.816,.816,.816}
+3{,}0;\;5{,}8;\;4{,}5 &
+30{,}36 & 1{,}31 & 33{,}48 & 0{,}57 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+3{,}0;\;5{,}8;\;4{,}5 &
+47{,}19 & 2{,}92 & 52{,}10 & 1{,}96 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+3{,}0;\;5{,}8;\;4{,}5 &
+64{,}81 & 5{,}15 & 70{,}94 & 4{,}64 \\ \hline
+\bottomrule
+% ---- U2 = 5,0 ; U3 = 5,8 ; UH = 4,5 ----
+\rowcolor[rgb]{.816,.816,.816}
+5{,}0;\;5{,}8;\;4{,}5 &
+29{,}92 & 0{,}71 & 34{,}37 & 0{,}06 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+5{,}0;\;5{,}8;\;4{,}5 &
+46{,}86 & 1{,}45 & 53{,}88 & 0{,}26 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+5{,}0;\;5{,}8;\;4{,}5 &
+64{,}92 & 2{,}24 & 73{,}30 & 1{,}00 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+5{,}0;\;5{,}8;\;4{,}5 &
+85{,}32 & 2{,}78 & 93{,}79 & 2{,}18 \\ \hline
+\bottomrule
+% ---- U2 = 7,0 ; U3 = 5,8 ; UH = 4,5 ----
+\rowcolor[rgb]{.816,.816,.816}
+7{,}0;\;5{,}8;\;4{,}5 &
+30{,}13 & 0{,}43 & 36{,}04 & 0{,}00 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+7{,}0;\;5{,}8;\;4{,}5 &
+46{,}75 & 1{,}00 & 55{,}44 & 0{,}00 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+7{,}0;\;5{,}8;\;4{,}5 &
+64{,}70 & 0{,}91 &&  \\ \hline
+
+
+\end{tabular}
+\caption{Máximos y mínimos medidos para distintas combinaciones de $U_2$, $U_3$ y $U_H$ (Medidas 6).}
+\label{tab:maximos_minimos_medidas6_xy}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|r|r|r|r|}
+\hline
+\rowcolor[rgb]{.651,.788,.925}
+U$_2$ V, U$_3$ V, U$_{\text{H}}$ V &
+\multicolumn{2}{c|}{Máximos} &
+\multicolumn{2}{c|}{Mínimos} \\ \hline
+\rowcolor[rgb]{.651,.788,.925}
+ & $\Delta x\pm0,0029$ V& $\Delta y\pm0,0029$ nA &
+     $\Delta x\pm0,0029$ V & $\Delta y\pm0,0029$ nA \\ \hline
+
+% ---- U2 = 3,0 ; U3 = 5,8 ; UH = 4,5 ----
+\rowcolor[rgb]{.816,.816,.816}
+3{,}0;\;5{,}8;\;4{,}5 &
+16{,}83 & 1{,}61 & 18{,}62 & 1{,}39 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+3{,}0;\;5{,}8;\;4{,}5 &
+17{,}62 & 2{,}23 & 18{,}84 & 2{,}68 \\ \hline
+\bottomrule
+
+% ---- U2 = 5,0 ; U3 = 5,8 ; UH = 4,5 ----
+\rowcolor[rgb]{.816,.816,.816}
+5{,}0;\;5{,}8;\;4{,}5 &
+16{,}94 & 0{,}74 & 19{,}51 & 0{,}20 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+5{,}0;\;5{,}8;\;4{,}5 &
+18{,}06 & 0{,}79 & 19{,}42 & 0{,}74 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+5{,}0;\;5{,}8;\;4{,}5 &
+20{,}40 & 0{,}54 & 20{,}49 & 1{,}18 \\ \hline
+\bottomrule
+
+% ---- U2 = 7,0 ; U3 = 5,8 ; UH = 4,5 ----
+\rowcolor[rgb]{.816,.816,.816}
+7{,}0;\;5{,}8;\;4{,}5 &
+16{,}62 & 0{,}57 & 19{,}40 & 0{,}00 \\ \hline
+\rowcolor[rgb]{.816,.816,.816}
+7{,}0;\;5{,}8;\;4{,}5 &
+17{,}95 & 0{,}09 &  &  \\ \hline
+\end{tabular}
+\caption{Valores del $\Delta$ de dos máximos o mínimos consecutivos (Medidas 6). Columnas numéricas en 4 decimales acorde a $\pm 0{,}0029$.}
+\label{tab:deltas_medidas6}
+\endgroup
+\end{table}
+
+\subsection{4º Experiencia}
+
+A continuación expondremos las demás medidas que tomamos, estas medidas fueron descartadas ya que no presentaban el comportamiento esperado.
+
+ Para la representación en (\ref{fig:Medidas2}), tenemos los valores de $U_3=5,9$ V y $U_H = 3,0$ V, y a valores en aumento de $U_2$, desde 1 hasta 7 V.
+
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas2.png}}
+    \caption{Representación gráfica de los todos valores tomados. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas2}
+\end{figure}
+
+
+ Para la representación en (\ref{fig:Medidas3}), tenemos los valores de $U_3=5,9$ V y $U_H = 7,0$ V, y a valores en aumento de $U_2$, desde 1 hasta 7 V.
+
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas3.png}}
+    \caption{Representación gráfica de los todos valores tomados. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas3}
+\end{figure}
+
+ Para la representación en (\ref{fig:Medidas4}), tenemos los valores de $U_3=5,9$ V y $U_H = 7,0$ V, y a valores en aumento de $U_2$, desde 1 hasta 7 V.
+
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas4.png}}
+    \caption{Representación gráfica de los todos valores tomados. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas4}
+\end{figure}
+
+\subsection{Discusión}
+Como se puede observar en la tablas referidas los $\Delta$ de los máximos, todas ellas guardan la siguiente relación, todos los valores se encuentran en un mismo intervalo de valores,[16,20], esto concuerda en el primer valor de ionización del Neón, en el siguiente apartado se ahondara en este aspecto respondiendo a las cuestiones propuestas en el guion de prácticas \cite{Guión}.
+
+Al no disponer de la posibilidad de realizar la práctica con el Hg no podremos encontrar la relación entre el estado gaseoso y los valores de los $\Delta$, todo esto debido a que el Hg es liquido a temperatura ambiente.
+
+
+\subsection{Cuestiones}
+
+\textbf{Comparad la diferencia entre los resultados obtenidos para los máximos y los mínimos consecutivos con el valor teórico esperado. Explicad las discrepancias.}
+
+El valor teórico asociado al primer nivel excitado del Neón se encuentra en el intervalo $16.6$–$16.8\ \mathrm{eV}$, lo que debería reflejarse en una separación entre máximos consecutivos cercana a $\Delta V \approx 16.7\ \mathrm{V}$. Los valores experimentales obtenidos en nuestras medidas se sitúan en el rango $[16, 20]\ \mathrm{V}$, lo que indica un acuerdo razonable con la teoría.
+
+Las discrepancias pueden atribuirse a varios factores: la anchura finita de los niveles atómicos, la presencia de un conjunto de estados excitados próximos en energía, fluctuaciones térmicas, y especialmente a la caída de potencial no controlada dentro del tubo. Además, el potencial de frenado y pequeños errores en la identificación de los máximos (ruido, resolución del software, dispersión del haz electrónico) pueden introducir desplazamientos adicionales. Estos efectos están ampliamente documentados en la literatura estándar del experimento de Franck–Hertz.
+
+
+
+
+
+\textbf{¿Qué estados de excitación se observan en el experimento? ¿Se observa más de uno?
+¿Por qué?}
+
+En el caso del Neón, los primeros niveles excitados corresponden a transiciones desde la configuración $2p$ hacia los estados $3s$ (alrededor de $16.6$ eV) y $3p$ (entre $18.3$ y $18.7$ eV). Debido a que ambos conjuntos de niveles están relativamente próximos, el experimento puede mostrar más de un valor efectivo de separación entre máximos cuando la resolución es suficiente.
+
+No obstante, en nuestra práctica solo se observó un conjunto principal de máximos, lo que indica que el tubo opera mayoritariamente en el régimen donde la excitación al nivel $3s$ domina. Los estados superiores producen máximos menos visibles debido a la menor probabilidad de excitación, el aumento del frenado electrónico y la limitación instrumental en el rango de corrientes detectables.
+
+
+
+
+
+\textbf{Explicad por qué no se utiliza hidrógeno en esta práctica en nuestro laboratorio.}
+
+El hidrógeno no se utiliza por múltiples razones. En primer lugar, su primer nivel excitado se encuentra a $10.2\ \mathrm{eV}$, pero la sección eficaz de colisión inelástica electrón–H es muy baja, lo que dificulta observar máximos bien definidos en la curva $I(V_1)$. Además, el H$_2$ molecular tendería a ionizarse o disociarse antes de mostrar un patrón claro de excitación discreta, complicando la interpretación del experimento.
+
+Por otro lado, los tubos de H presentan problemas de estabilidad, requieren presiones extremadamente bajas y son más sensibles a descargas disruptivas. Comparado con ellos, el Neón ofrece una señal más estable, niveles excitados muy marcados y una presión que permite realizar el experimento de forma segura y reproducible en un entorno docente.
+
+
+
+\section{Conclusiones}
+En esta experimento hemos comprobado experimentalmente la naturaleza cuantizada de la energía en el átomo de Neón mediante el análisis del experimento de Franck–Hertz. Las gráficas obtenidas muestran máximos y mínimos bien definidos cuya separación es consistente con el primer nivel excitado del Ne, en torno a $16$–$17\ \mathrm{V}$, en buen acuerdo con los valores teóricos.
+
+Las discrepancias observadas pueden explicarse por efectos instrumentales, el solapamiento de estados excitados y la sensibilidad del experimento a los potenciales de control. Aun así, el patrón general confirma que los electrones transfieren energía a los átomos únicamente en cantidades discretas, proporcionando una evidencia clara y directa de los postulados fundamentales de la mecánica cuántica. La práctica demuestra la robustez del método y la importancia del ajuste adecuado de los parámetros del tubo para obtener resultados reproducibles y físicamente interpretables.
+
+\section{Apéndices}
+\subsection{A1: Calculo de Incertidumbres} 
+Para esta práctica el calculo de incertidumbres se redujo unicamente a la incertidumbre tipo B asociada a las medidas de $V$ e $I$, este valor se obtendría dividiendo la resolución entre $\sqrt{12}$. 
+
+\begin{equation}
+    u_B(x) = \dfrac{\delta}{\sqrt{12}}
+\end{equation}
+
+
+\subsection{A2: Gráficas de los ajsutes}
+\subsubsection{1º Medida}
+
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas1-1.png}}
+    \caption{Representación gráfica de los valores tomados para las siguientes medidas: $U_2 = 1,0$ V,	$U_3 = 5,9$ V y $U_H=5,0$ V. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas 1}
+\end{figure}
+
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas1-2.png}}
+    \caption{Representación gráfica de los valores tomados para las siguientes medidas: $U_2 = 2,0$ V,	$U_3 = 5,9$ V y $U_H=5,0$ V. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas 2}
+\end{figure}
+
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas1-3.png}}
+    \caption{Representación gráfica de los valores tomados para las siguientes medidas: $U_2 = 3,0$ V,	$U_3 = 5,9$ V y $U_H=5,0$ V. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas 3}
+\end{figure}
+
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas1-4.png}}
+    \caption{Representación gráfica de los valores tomados para las siguientes medidas: $U_2 = 4,0$ V,	$U_3 = 5,9$ V y $U_H=5,0$ V. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas 4}
+\end{figure}
+
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas1-5.png}}
+    \caption{Representación gráfica de los valores tomados para las siguientes medidas: $U_2 = 5,0$ V,	$U_3 = 5,9$ V y $U_H=5,0$ V. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas 5}
+\end{figure}
+
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas1-6.png}}
+    \caption{Representación gráfica de los valores tomados para las siguientes medidas: $U_2 = 6,0$ V,	$U_3 = 5,9$ V y $U_H=5,0$ V. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas 6}
+\end{figure}
+
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas1-7.png}}
+    \caption{Representación gráfica de los valores tomados para las siguientes medidas: $U_2 = 7,0$ V,	$U_3 = 5,9$ V y $U_H=5,0$ V. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas 7}
+\end{figure}
+
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas1-8.png}}
+    \caption{Representación gráfica de los valores tomados para las siguientes medidas: $U_2 = 8,0$ V,	$U_3 = 5,9$ V y $U_H=5,0$ V. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas 8}
+\end{figure}
+
+\subsubsection{2º Medida}
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas5-1.png}}
+    \caption{Representación gráfica de los valores tomados para las siguientes medidas: $U_2 = 3,0$ V,	$U_3 = 5,8$ V y $U_H=5,5$ V. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas5-1}
+\end{figure}
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas5-2.png}}
+    \caption{Representación gráfica de los valores tomados para las siguientes medidas: $U_2 = 5,0$ V,	$U_3 = 5,8$ V y $U_H=5,5$ V. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas5-2}
+\end{figure}
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas5-3.png}}
+    \caption{Representación gráfica de los valores tomados para las siguientes medidas: $U_2 = 7,0$ V,	$U_3 = 5,8$ V y $U_H=5,5$ V. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas5-3}
+\end{figure}
+
+\subsubsection{3º Medida}
+%3,0	5,8	4,5
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas6-1.png}}
+    \caption{Representación gráfica de los valores tomados para las siguientes medidas: $U_2 = 3,0$ V,	$U_3 = 5,8$ V y $U_H=4,5$ V. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas6-1}
+\end{figure}
+
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas6-2.png}}
+    \caption{Representación gráfica de los valores tomados para las siguientes medidas: $U_2 = 5,0$ V,	$U_3 = 5,8$ V y $U_H=4,5$ V. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas6-2}
+\end{figure}
+
+\begin{figure}[H]
+    \makebox[\textwidth][c]{\includegraphics[width=1.0\textwidth]{Cuantica/Medidas6-3.png}}
+    \caption{Representación gráfica de los valores tomados para las siguientes medidas: $U_2 = 7,0$ V,	$U_3 = 5,8$ V y $U_H=4,5$ V. En el eje de abscisas se representan los valores de $V_1$, mientras que en el eje de ordenadas se representa la intensidad  de corriente.}
+    \label{fig:Medidas6-3}
+\end{figure}
+\bibliographystyle{apalike}
+\bibliography{biblio,references}
+
+\end{document}
